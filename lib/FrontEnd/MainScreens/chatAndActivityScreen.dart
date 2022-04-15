@@ -203,7 +203,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                   return CircleAvatar(
                     backgroundColor: Colors.white,
                     backgroundImage:
-                        const ExactAssetImage('assets/images/google.png'),
+                        const ExactAssetImage('assets/images/ds.jpg'),
                     radius: MediaQuery.of(context).orientation ==
                             Orientation.portrait
                         ? MediaQuery.of(context).size.height * (1.2 / 8) / 3.7
@@ -351,7 +351,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                         radius: 30.0,
                         backgroundColor: Colors.black12,
                         backgroundImage:
-                            ExactAssetImage('assets/images/google.png'),
+                            ExactAssetImage('assets/images/ds.jpg'),
                         //getProperImageProviderForConnectionsCollection(
                         //    _userName),
                       );

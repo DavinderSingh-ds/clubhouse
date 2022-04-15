@@ -58,7 +58,7 @@ class _LogsCollectionState extends State<LogsCollection> {
             const CircleAvatar(
               radius: 30.0,
               backgroundColor: Color.fromARGB(255, 248, 244, 244),
-              backgroundImage: ExactAssetImage('assets/images/google.png'),
+              backgroundImage: ExactAssetImage('assets/images/ds.jpg'),
               //getProperImageProviderForConnectionsCollection(
               //    _userName),
             ),

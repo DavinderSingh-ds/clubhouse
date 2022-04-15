@@ -127,9 +127,9 @@ class _MainScreenState extends State<MainScreen> {
       tabs: const [
         Tab(
           child: Text(
-            "Chats",
+            "💬",
             style: TextStyle(
-              fontSize: 19.0,
+              fontSize: 26.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
@@ -138,9 +138,9 @@ class _MainScreenState extends State<MainScreen> {
         ),
         Tab(
           child: Text(
-            "Image",
+            "🏠",
             style: TextStyle(
-              fontSize: 19.0,
+              fontSize: 26.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
@@ -149,9 +149,9 @@ class _MainScreenState extends State<MainScreen> {
         ),
         Tab(
           child: Text(
-            "Calls",
+            "📱",
             style: TextStyle(
-              fontSize: 19.0,
+              fontSize: 22.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
@@ -159,9 +159,14 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         Tab(
-          icon: Icon(
-            Icons.store,
-            size: 25.0,
+          child: Text(
+            "🏪",
+            style: TextStyle(
+              fontSize: 22.0,
+              fontFamily: 'Lora',
+              fontWeight: FontWeight.w500,
+              letterSpacing: 1.0,
+            ),
           ),
         ),
       ],
@@ -191,7 +196,7 @@ class _MainScreenState extends State<MainScreen> {
                 child: Center(
                   child: CircleAvatar(
                     backgroundImage:
-                        const ExactAssetImage('assets/images/google.png'),
+                        const ExactAssetImage('assets/images/ds.jpg'),
                     backgroundColor: const Color.fromARGB(255, 200, 220, 238),
                     radius: MediaQuery.of(context).orientation ==
                             Orientation.portrait
