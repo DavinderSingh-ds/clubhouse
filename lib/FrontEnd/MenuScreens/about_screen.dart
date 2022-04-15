@@ -6,7 +6,6 @@ class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -20,7 +19,11 @@ class AboutSection extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'About ClubHouse',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -30,9 +33,9 @@ class AboutSection extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  "A Private, Secure, End-to-End Encrypted Messaging  app that helps you to connect with your connections without any Ads, promotion. No other third party person, organization, or even ClubHouse Team can't read your messages. Nobody can't take screenshot or can't do screen recording of this app.Security is provide by Honour of the App @ Davinder Singh",
+                  "A very Secure and Cool App,It provides messaging Facillity without interfering third pary person or even developer team.Very Secure reliable and cooling features app Made by @Davinder Singh.",
                   textAlign: TextAlign.justify,
-                  style: TextStyle(color: Colors.white70, fontSize: 16.0),
+                  style: TextStyle(color: Colors.black87, fontSize: 16.0),
                 ),
               ),
             ),
@@ -54,7 +57,7 @@ class AboutSection extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Messages and Activity except Audio Calling\nare End-to-End Encrypted',
+                  'Messages are End-to-End Encrypted',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.amber, fontSize: 16.0),
                 ),
@@ -66,9 +69,13 @@ class AboutSection extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Hope You Enjoying this app',
+                  'Hope You Like this app',
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.lightBlue, fontSize: 18.0),
+                  style: TextStyle(
+                    color: Colors.lightBlue,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -78,9 +85,13 @@ class AboutSection extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  'Creator\nDavinder Singh',
+                  'Developer : - Davinder Singh \nBtech. IT \n 1907608\nFrom :- Earth',
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.lightBlue, fontSize: 18.0),
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

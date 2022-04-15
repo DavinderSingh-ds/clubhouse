@@ -18,15 +18,14 @@ class _SettingsWindowState extends State<SettingsWindow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
+      backgroundColor: Colors.blue,
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 39, 52, 1),
         elevation: 10.0,
-        shadowColor: Colors.white70,
+        shadowColor: Colors.black,
         title: const Text(
           'Settings',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20.0,
             fontFamily: 'Lora',
             letterSpacing: 1.0,
@@ -163,7 +162,7 @@ class _SettingsWindowState extends State<SettingsWindow> {
                   child: Text(
                     smallDescription,
                     style: const TextStyle(
-                      color: Colors.white54,
+                      color: Colors.black,
                     ),
                   ),
                 ),

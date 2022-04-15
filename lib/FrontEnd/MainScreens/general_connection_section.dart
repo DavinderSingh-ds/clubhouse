@@ -15,7 +15,6 @@ class _GeneralMessagingSectionState extends State<GeneralMessagingSection> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Center(
@@ -24,16 +23,17 @@ class _GeneralMessagingSectionState extends State<GeneralMessagingSection> {
               outerRadius: MediaQuery.of(context).size.width / 2.2,
               innerRadius: MediaQuery.of(context).size.width / 4,
               showInitialAnimation: true,
-              innerCircleColor: const Color.fromRGBO(34, 48, 60, 1),
-              outerCircleColor: const Color.fromRGBO(0, 0, 0, 0.1),
+              // innerCircleColor: const Color.fromRGBO(34, 48, 60, 1),
+              outerCircleColor: const Color.fromARGB(24, 92, 119, 241),
               origin: const Offset(0, 0),
               rotateMode: RotateMode.allRotate,
               centerWidget: const Center(
                 child: Text(
-                  "G",
+                  "DS",
                   style: TextStyle(
-                    color: Colors.lightBlue,
+                    color: Colors.blue,
                     fontSize: 65.0,
+                    fontFamily: 'Times New Roman',
                   ),
                 ),
               ),

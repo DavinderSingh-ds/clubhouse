@@ -18,9 +18,7 @@ class _SupportMenuMakerState extends State<SupportMenuMaker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 39, 52, 1),
         elevation: 10.0,
         shadowColor: Colors.white70,
         title: const Text(
@@ -72,10 +70,6 @@ class _SupportMenuMakerState extends State<SupportMenuMaker> {
   Widget _getListOption(
       {required Icon icon, required String title, required String extraText}) {
     return OpenContainer(
-      closedColor: const Color.fromRGBO(34, 48, 60, 1),
-      middleColor: const Color.fromRGBO(34, 48, 60, 1),
-      openColor: const Color.fromRGBO(34, 48, 60, 1),
-      closedElevation: 0.0,
       transitionType: ContainerTransitionType.fadeThrough,
       transitionDuration: const Duration(
         milliseconds: 500,
@@ -101,48 +95,51 @@ class _SupportMenuMakerState extends State<SupportMenuMaker> {
         return const Center();
       },
       closedBuilder: (_, __) {
-        return Container(
-          height: 80.0,
-          alignment: Alignment.center,
-          padding: const EdgeInsets.only(
-            top: 10.0,
-            bottom: 10.0,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 10.0,
+        return Card(
+          elevation: 3,
+          child: Container(
+            height: 80.0,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.only(
+              top: 10.0,
+              bottom: 13.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 10.0,
+                  ),
+                  child: icon,
                 ),
-                child: icon,
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          color: Colors.white70,
-                          fontSize: 18.0,
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.0,
+                          ),
                         ),
-                      ),
-                      Text(
-                        extraText,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white54,
-                          fontSize: 16.0,
+                        Text(
+                          extraText,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

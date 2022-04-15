@@ -18,14 +18,14 @@ class _LogsCollectionState extends State<LogsCollection> {
     'Jahnvi Kapoor',
     'Amitabh Bachchan',
     'Hrithik Roshan',
-    'VikramJit Singh'
+    'VikramJit Singh',
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
+        backgroundColor: Colors.white,
         body: LoadingOverlay(
           color: const Color.fromRGBO(0, 0, 0, 0.5),
           progressIndicator: const CircularProgressIndicator(
@@ -49,30 +49,33 @@ class _LogsCollectionState extends State<LogsCollection> {
 
   Widget _everyConnectionHistory(int index) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 15.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const CircleAvatar(
-            radius: 30.0,
-            backgroundColor: Color.fromRGBO(34, 48, 60, 1),
-            backgroundImage: ExactAssetImage('assets/images/google.png'),
-            //getProperImageProviderForConnectionsCollection(
-            //    _userName),
-          ),
-          Text(
-            _callingConnection[index],
-            style: const TextStyle(color: Colors.white, fontSize: 20.0),
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.call,
-              size: 30.0,
-              color: Colors.green,
+      margin: const EdgeInsets.only(bottom: 3.0),
+      child: Card(
+        elevation: 1,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const CircleAvatar(
+              radius: 30.0,
+              backgroundColor: Color.fromARGB(255, 248, 244, 244),
+              backgroundImage: ExactAssetImage('assets/images/google.png'),
+              //getProperImageProviderForConnectionsCollection(
+              //    _userName),
             ),
-            onPressed: () {},
-          ),
-        ],
+            Text(
+              _callingConnection[index],
+              style: const TextStyle(color: Colors.black, fontSize: 20.0),
+            ),
+            IconButton(
+              icon: const Icon(
+                Icons.call,
+                size: 30.0,
+                color: Colors.green,
+              ),
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
     );
   }

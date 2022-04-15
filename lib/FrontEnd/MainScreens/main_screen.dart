@@ -174,7 +174,7 @@ class _MainScreenState extends State<MainScreen> {
       child: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        color: const Color.fromRGBO(34, 48, 60, 1),
+        color: Colors.grey[100],
         child: ListView(
           shrinkWrap: true,
           children: [
@@ -186,15 +186,18 @@ class _MainScreenState extends State<MainScreen> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (_) => const ProfileScreen()));
               },
-              child: Center(
-                child: CircleAvatar(
-                  backgroundImage:
-                      const ExactAssetImage('assets/images/google.png'),
-                  backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
-                  radius: MediaQuery.of(context).orientation ==
-                          Orientation.portrait
-                      ? MediaQuery.of(context).size.height * (1.2 / 8) / 2.5
-                      : MediaQuery.of(context).size.height * (2.5 / 8) / 2.5,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: CircleAvatar(
+                    backgroundImage:
+                        const ExactAssetImage('assets/images/google.png'),
+                    backgroundColor: const Color.fromARGB(255, 200, 220, 238),
+                    radius: MediaQuery.of(context).orientation ==
+                            Orientation.portrait
+                        ? MediaQuery.of(context).size.height * (1.2 / 8) / 3
+                        : MediaQuery.of(context).size.height * (2.5 / 8) / 3,
+                  ),
                 ),
               ),
             ),
@@ -205,7 +208,7 @@ class _MainScreenState extends State<MainScreen> {
             const SizedBox(
               height: 10.0,
             ),
-            _menuOptions(Icons.settings, 'Setting'),
+            _menuOptions(Icons.settings, 'Settings'),
             const SizedBox(
               height: 10.0,
             ),
@@ -232,9 +235,6 @@ class _MainScreenState extends State<MainScreen> {
       ),
       closedElevation: 0.0,
       openElevation: 3.0,
-      closedColor: const Color.fromRGBO(34, 48, 60, 1),
-      openColor: const Color.fromRGBO(34, 48, 60, 1),
-      middleColor: const Color.fromRGBO(34, 48, 60, 1),
       onClosed: (value) {
         // print('Profile Page Closed');
         // if (mounted) {
@@ -272,7 +272,7 @@ class _MainScreenState extends State<MainScreen> {
                 menuOptionIs,
                 style: const TextStyle(
                   fontSize: 20.0,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ],
@@ -301,7 +301,7 @@ class _MainScreenState extends State<MainScreen> {
             'Exit',
             style: TextStyle(
               fontSize: 20.0,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ],

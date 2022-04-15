@@ -78,7 +78,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return LoadingOverlay(
       isLoading: this._isLoading,
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
         body: ListView(
           children: [
             const SizedBox(
@@ -112,9 +111,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Stack(
               children: [
                 OpenContainer(
-                  closedColor: const Color.fromRGBO(34, 48, 60, 1),
-                  openColor: const Color.fromRGBO(34, 48, 60, 1),
-                  middleColor: const Color.fromRGBO(34, 48, 60, 1),
                   closedShape: const CircleBorder(),
                   closedElevation: 0.0,
                   transitionDuration: const Duration(
@@ -128,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     return CircleAvatar(
                       backgroundImage:
                           const ExactAssetImage('assets/images/google.png'),
-                      backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
+                      backgroundColor: const Color.fromARGB(255, 232, 241, 248),
                       radius: MediaQuery.of(context).orientation ==
                               Orientation.portrait
                           ? MediaQuery.of(context).size.height * (1.2 / 8) / 2.5
@@ -205,8 +201,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'Lora',
-                  fontStyle: FontStyle.italic,
-                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                   letterSpacing: 1.0,
                 ),
               ),
@@ -232,7 +228,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: const TextStyle(
                   fontSize: 18.0,
                   fontFamily: 'Lora',
-                  fontStyle: FontStyle.italic,
+                  fontStyle: FontStyle.normal,
                   color: Colors.lightBlue,
                   letterSpacing: 1.0,
                 ),

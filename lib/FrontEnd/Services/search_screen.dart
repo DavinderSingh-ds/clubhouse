@@ -78,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
+        backgroundColor: const Color.fromARGB(255, 235, 240, 245),
         body: LoadingOverlay(
           isLoading: _isLoading,
           color: Colors.black54,
@@ -92,7 +92,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 const Center(
                   child: Text(
                     'Available Connections',
-                    style: TextStyle(color: Colors.white, fontSize: 25.0),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Container(
@@ -100,10 +104,10 @@ class _SearchScreenState extends State<SearchScreen> {
                   margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                   child: TextField(
                     autofocus: true,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.black),
                     decoration: const InputDecoration(
                       hintText: 'Search User Name',
-                      hintStyle: TextStyle(color: Colors.white70),
+                      hintStyle: TextStyle(color: Colors.black54),
                       focusedBorder: UnderlineInputBorder(
                           borderSide:
                               BorderSide(width: 2.0, color: Colors.lightBlue)),
@@ -165,118 +169,123 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget connectionShowUp(int index) {
-    return Container(
-      height: 80.0,
-      width: double.maxFinite,
-      color: Colors.white,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                _sortedAvailableUsers[index]
-                    .values
-                    .first
-                    .toString()
-                    .split('[user-name-about-divider]')[0],
-                style: const TextStyle(color: Colors.orange, fontSize: 20.0),
-              ),
-              Text(
-                _sortedAvailableUsers[index]
-                    .values
-                    .first
-                    .toString()
-                    .split('[user-name-about-divider]')[1],
-                style: const TextStyle(color: Colors.lightBlue, fontSize: 16.0),
-              ),
-            ],
-          ),
-          TextButton(
-              style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100.0),
-                side: BorderSide(
-                    color: _getRelevantButtonConfig(
-                        connectionStateType:
-                            ConnectionStateType.ButtonBorderColor,
-                        index: index)),
-              )),
-              child: _getRelevantButtonConfig(
-                  connectionStateType: ConnectionStateType.ButtonNameWidget,
-                  index: index),
-              onPressed: () async {
-                final String buttonName = _getRelevantButtonConfig(
-                    connectionStateType: ConnectionStateType.ButtonOnlyName,
-                    index: index);
+    return Card(
+      elevation: 1,
+      color: const Color.fromARGB(255, 29, 125, 235),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  _sortedAvailableUsers[index]
+                      .values
+                      .first
+                      .toString()
+                      .split('[user-name-about-divider]')[0],
+                  style: const TextStyle(color: Colors.black, fontSize: 20.0),
+                ),
+                Text(
+                  _sortedAvailableUsers[index]
+                      .values
+                      .first
+                      .toString()
+                      .split('[user-name-about-divider]')[1],
+                  style: const TextStyle(color: Colors.white, fontSize: 16.0),
+                ),
+              ],
+            ),
+            TextButton(
+                style: TextButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(100.0),
+                  side: BorderSide(
+                      color: _getRelevantButtonConfig(
+                          connectionStateType:
+                              ConnectionStateType.ButtonBorderColor,
+                          index: index)),
+                )),
+                child: _getRelevantButtonConfig(
+                    connectionStateType: ConnectionStateType.ButtonNameWidget,
+                    index: index),
+                onPressed: () async {
+                  final String buttonName = _getRelevantButtonConfig(
+                      connectionStateType: ConnectionStateType.ButtonOnlyName,
+                      index: index);
 
-                if (mounted) {
-                  setState(() {
-                    _isLoading = true;
-                  });
-                }
-
-                if (buttonName == ConnectionStateName.Connect.toString()) {
                   if (mounted) {
                     setState(() {
-                      _myConnectionRequestCollection.add({
-                        _sortedAvailableUsers[index].keys.first.toString():
-                            OtherConnectionStatus.Request_Pending.toString(),
+                      _isLoading = true;
+                    });
+                  }
+
+                  if (buttonName == ConnectionStateName.Connect.toString()) {
+                    if (mounted) {
+                      setState(() {
+                        _myConnectionRequestCollection.add({
+                          _sortedAvailableUsers[index].keys.first.toString():
+                              OtherConnectionStatus.Request_Pending.toString(),
+                        });
                       });
-                    });
+                    }
+
+                    await _cloudStoreDataManagement.changeConnectionStatus(
+                        oppositeUserMail:
+                            _sortedAvailableUsers[index].keys.first.toString(),
+                        currentUserMail:
+                            FirebaseAuth.instance.currentUser!.email.toString(),
+                        connectionUpdatedStatus:
+                            OtherConnectionStatus.Invitation_Came.toString(),
+                        currentUserUpdatedConnectionRequest:
+                            _myConnectionRequestCollection);
+                  } else if (buttonName ==
+                      ConnectionStateName.Accept.toString()) {
+                    if (mounted) {
+                      setState(() {
+                        for (var element in _myConnectionRequestCollection) {
+                          if (element.keys.first.toString() ==
+                              _sortedAvailableUsers[index]
+                                  .keys
+                                  .first
+                                  .toString()) {
+                            _myConnectionRequestCollection[
+                                _myConnectionRequestCollection
+                                    .indexOf(element)] = {
+                              _sortedAvailableUsers[index]
+                                      .keys
+                                      .first
+                                      .toString():
+                                  OtherConnectionStatus.Invitation_Accepted
+                                      .toString(),
+                            };
+                          }
+                        }
+                      });
+                    }
+
+                    await _cloudStoreDataManagement.changeConnectionStatus(
+                        storeDataAlsoInConnections: true,
+                        oppositeUserMail:
+                            _sortedAvailableUsers[index].keys.first.toString(),
+                        currentUserMail:
+                            FirebaseAuth.instance.currentUser!.email.toString(),
+                        connectionUpdatedStatus:
+                            OtherConnectionStatus.Request_Accepted.toString(),
+                        currentUserUpdatedConnectionRequest:
+                            _myConnectionRequestCollection);
                   }
 
-                  await _cloudStoreDataManagement.changeConnectionStatus(
-                      oppositeUserMail:
-                          _sortedAvailableUsers[index].keys.first.toString(),
-                      currentUserMail:
-                          FirebaseAuth.instance.currentUser!.email.toString(),
-                      connectionUpdatedStatus:
-                          OtherConnectionStatus.Invitation_Came.toString(),
-                      currentUserUpdatedConnectionRequest:
-                          _myConnectionRequestCollection);
-                } else if (buttonName ==
-                    ConnectionStateName.Accept.toString()) {
                   if (mounted) {
                     setState(() {
-                      for (var element in _myConnectionRequestCollection) {
-                        if (element.keys.first.toString() ==
-                            _sortedAvailableUsers[index]
-                                .keys
-                                .first
-                                .toString()) {
-                          _myConnectionRequestCollection[
-                              _myConnectionRequestCollection
-                                  .indexOf(element)] = {
-                            _sortedAvailableUsers[index].keys.first.toString():
-                                OtherConnectionStatus.Invitation_Accepted
-                                    .toString(),
-                          };
-                        }
-                      }
+                      _isLoading = false;
                     });
                   }
-
-                  await _cloudStoreDataManagement.changeConnectionStatus(
-                      storeDataAlsoInConnections: true,
-                      oppositeUserMail:
-                          _sortedAvailableUsers[index].keys.first.toString(),
-                      currentUserMail:
-                          FirebaseAuth.instance.currentUser!.email.toString(),
-                      connectionUpdatedStatus:
-                          OtherConnectionStatus.Request_Accepted.toString(),
-                      currentUserUpdatedConnectionRequest:
-                          _myConnectionRequestCollection);
-                }
-
-                if (mounted) {
-                  setState(() {
-                    _isLoading = false;
-                  });
-                }
-              }),
-        ],
+                }),
+          ],
+        ),
       ),
     );
   }

@@ -40,9 +40,7 @@ class _SupportInputTakerState extends State<SupportInputTaker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 39, 52, 1),
         elevation: 10.0,
         shadowColor: Colors.white70,
         title: Text(
@@ -80,7 +78,7 @@ class _SupportInputTakerState extends State<SupportInputTaker> {
                   decoration: InputDecoration(
                       labelText: '${widget.subject} Title',
                       labelStyle: const TextStyle(
-                        color: Colors.white70,
+                        color: Colors.black,
                         fontFamily: 'Lora',
                         letterSpacing: 1.0,
                       ),
@@ -116,7 +114,7 @@ class _SupportInputTakerState extends State<SupportInputTaker> {
                   decoration: InputDecoration(
                       labelText: '${widget.subject} Description',
                       labelStyle: const TextStyle(
-                        color: Colors.white70,
+                        color: Colors.black,
                         fontFamily: 'Lora',
                         letterSpacing: 1.0,
                       ),
