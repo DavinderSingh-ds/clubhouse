@@ -13,10 +13,10 @@ Widget commonTextFormField(
     child: TextFormField(
       validator: validator,
       controller: textEditingController,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.black),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.white70),
+        hintStyle: const TextStyle(color: Colors.black87),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: Colors.lightBlue,
@@ -100,7 +100,7 @@ Widget switchAnotherAuthScreen(
         Text(
           buttonNameFirst,
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 16.0,
             letterSpacing: 1.0,
           ),
@@ -108,17 +108,14 @@ Widget switchAnotherAuthScreen(
         Text(
           buttonNameLast,
           style: const TextStyle(
-            color: Colors.lightBlueAccent,
+            color: Colors.blue,
             fontSize: 16.0,
             letterSpacing: 1.0,
           ),
         ),
       ],
     ),
-    style: ElevatedButton.styleFrom(
-      elevation: 0.0,
-      primary: const Color.fromRGBO(34, 48, 60, 1),
-    ),
+    style: ElevatedButton.styleFrom(elevation: 0.0, primary: Colors.grey[300]),
     onPressed: () {
       if (buttonNameLast == "Log-In") {
         Navigator.push(

@@ -39,7 +39,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
         body: LoadingOverlay(
           isLoading: _isLoading,
           color: Colors.black54,
@@ -54,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Center(
                   child: Text(
                     'Sign-Up',
-                    style: TextStyle(fontSize: 28.0, color: Colors.white),
+                    style: TextStyle(fontSize: 28.0, color: Colors.black),
                   ),
                 ),
                 Container(
@@ -103,7 +102,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Center(
                   child: Text(
                     'Or Continue With',
-                    style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    style: TextStyle(color: Colors.black, fontSize: 20.0),
                   ),
                 ),
                 signUpSocialMediaIntegrationButtons(),
@@ -124,7 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         style: ElevatedButton.styleFrom(
             minimumSize: Size(MediaQuery.of(context).size.width - 60, 30.0),
             elevation: 5.0,
-            primary: const Color.fromRGBO(57, 60, 80, 1),
+            primary: Colors.amber,
             padding: const EdgeInsets.only(
               left: 20.0,
               right: 20.0,
