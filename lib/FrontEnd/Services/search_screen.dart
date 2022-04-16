@@ -171,7 +171,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget connectionShowUp(int index) {
     return Card(
       elevation: 1,
-      color: const Color.fromARGB(255, 129, 59, 241),
+      color: const Color.fromARGB(255, 120, 17, 255),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(

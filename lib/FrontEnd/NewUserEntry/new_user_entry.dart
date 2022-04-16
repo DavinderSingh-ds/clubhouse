@@ -34,7 +34,7 @@ class _TakePrimaryUserDataState extends State<TakePrimaryUserData> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
+      backgroundColor: Colors.blue,
       body: LoadingOverlay(
         isLoading: _isLoading,
         child: Container(

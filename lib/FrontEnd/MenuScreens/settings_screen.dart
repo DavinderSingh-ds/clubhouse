@@ -18,7 +18,6 @@ class _SettingsWindowState extends State<SettingsWindow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
       appBar: AppBar(
         elevation: 10.0,
         shadowColor: Colors.black,
@@ -49,13 +48,13 @@ class _SettingsWindowState extends State<SettingsWindow> {
               mainText: 'Chat Wallpaper',
               icon: Icons.wallpaper_outlined,
               smallDescription: 'Change Chat Common Wallpaper'),
-          // const SizedBox(
-          //   height: 15.0,
-          // ),
-          // everySettingsItem(
-          //     mainText: 'Generation Direct Calling Setting',
-          //     icon: Icons.call,
-          //     smallDescription: 'Add Phone Number to Receive Call'),
+          const SizedBox(
+            height: 15.0,
+          ),
+          everySettingsItem(
+              mainText: 'Generation Direct Calling Setting',
+              icon: Icons.call,
+              smallDescription: 'Add Phone Number to Receive Call'),
           const SizedBox(
             height: 15.0,
           ),
@@ -93,9 +92,6 @@ class _SettingsWindowState extends State<SettingsWindow> {
       required String smallDescription}) {
     return OpenContainer(
       closedElevation: 0.0,
-      openColor: const Color.fromRGBO(34, 48, 60, 1),
-      middleColor: const Color.fromRGBO(34, 48, 60, 1),
-      closedColor: const Color.fromRGBO(34, 48, 60, 1),
       transitionType: ContainerTransitionType.fadeThrough,
       transitionDuration: const Duration(milliseconds: 500),
       openBuilder: (_, __) {
@@ -147,7 +143,7 @@ class _SettingsWindowState extends State<SettingsWindow> {
                     mainText,
                     style: const TextStyle(
                       fontSize: 18.0,
-                      color: Colors.white70,
+                      color: Colors.blue,
                     ),
                   )
                 ],

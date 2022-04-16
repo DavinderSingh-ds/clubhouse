@@ -50,16 +50,15 @@ class _MainScreenState extends State<MainScreen> {
                     ]),
               ),
             ),
-
-            elevation: 10.0,
-            // shadowColor: Colors.white70,
-            // shape: const RoundedRectangleBorder(
-            //   borderRadius: BorderRadius.only(
-            //     bottomLeft: Radius.circular(40.0),
-            //     bottomRight: Radius.circular(40.0),
-            //   ),
-            //   side: BorderSide(width: 0.7),
-            // ),
+            elevation: 20.0,
+            shadowColor: Colors.white,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30.0),
+                bottomRight: Radius.circular(30.0),
+              ),
+              side: BorderSide(width: 0.7),
+            ),
             title: const Text(
               "ClubHouse",
               style: TextStyle(
@@ -251,7 +250,7 @@ class _MainScreenState extends State<MainScreen> {
       openBuilder: (context, openWidget) {
         if (menuOptionIs == 'Profile') {
           return const ProfileScreen();
-        } else if (menuOptionIs == 'Setting') {
+        } else if (menuOptionIs == 'Settings') {
           return const SettingsWindow();
         } else if (menuOptionIs == 'Support') {
           return const SupportMenuMaker();

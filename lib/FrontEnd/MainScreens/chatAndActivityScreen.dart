@@ -286,20 +286,20 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
         ),
         child: ReorderableListView.builder(
           onReorder: (first, last) {
-            // if (mounted) {
-            //   setState(() {
-            //     final String _draggableConnection =
-            //     this._allConnectionsUserName.removeAt(first);
-            //
-            //     this._allConnectionsUserName.insert(
-            //         last >= this._allConnectionsUserName.length
-            //             ? this._allConnectionsUserName.length
-            //             : last > first
-            //             ? --last
-            //             : last,
-            //         _draggableConnection);
-            //   });
-            // }
+            if (mounted) {
+              setState(() {
+                final String _draggableConnection =
+                    _allConnectionsUserName.removeAt(first);
+
+                _allConnectionsUserName.insert(
+                    last >= _allConnectionsUserName.length
+                        ? _allConnectionsUserName.length
+                        : last > first
+                            ? --last
+                            : last,
+                    _draggableConnection);
+              });
+            }
           },
           itemCount: _allConnectionsUserName.length,
           itemBuilder: (context, position) {
@@ -417,13 +417,13 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                     ),
                     child: Column(
                       children: const [
-                        Text('12:00'),
+                        Text('5:30'),
                         SizedBox(
                           height: 10.0,
                         ),
                         Icon(
                           Icons.notifications_active_outlined,
-                          color: Colors.green,
+                          color: Color.fromARGB(255, 65, 77, 65),
                         ),
                       ],
                     ),
