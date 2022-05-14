@@ -70,7 +70,8 @@ dev_dependencies:
   firebase_storage: ^10.2.12
   dio: ^4.0.6
   flutter_local_notifications: ^9.4.0
-  http: ^0.13.4      
+  http: ^0.13.4   
+  maze: ^3.0.0   
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
