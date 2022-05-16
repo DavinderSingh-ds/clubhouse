@@ -31,7 +31,7 @@ Future<void> main() async {
 
   runApp(
     MaterialApp(
-      title: 'Generation',
+      title: 'ClubHouse',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       home: await differentContextDecisionTake(),
