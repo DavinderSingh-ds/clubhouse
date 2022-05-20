@@ -34,6 +34,10 @@ class _MazeRunnerState extends State<MazeRunner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Maze Runner'),
+        backgroundColor: Colors.blueAccent,
+      ),
       body: SafeArea(
         child: Maze(
           player: MazeItem(
