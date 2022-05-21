@@ -4,19 +4,8 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:animations/animations.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
-// import 'package:image_picker/image_picker.dart';
 import 'package:loading_overlay/loading_overlay.dart';
-
-// import 'package:generation/BackendAndDatabaseManager/firebase_services/delete_my_account_service.dart';
-// import 'package:generation/BackendAndDatabaseManager/global_controller/different_types.dart';
-// import 'package:generation/BackendAndDatabaseManager/sqlite_services/local_storage_controller.dart';
-// import 'package:generation/BackendAndDatabaseManager/global_controller/this_account_important_data.dart';
-// import 'package:generation/BackendAndDatabaseManager/firebase_services/firestore_management.dart';
-// import 'package:generation/BackendAndDatabaseManager/general_services/toast_message_manage.dart';
-// import 'package:generation/FrontEnd/Preview/images_preview_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -26,50 +15,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // String _userAbout = '', _userAccCreationDate = '', _userAccCreationTime = '';
-
-  // final FToast _fToast = FToast();
-  //
-  // final Management _management = Management();
-  // final ImagePicker _imagePicker = ImagePicker();
-  // final LocalStorageHelper _localStorageHelper = LocalStorageHelper();
-
   bool _isLoading = false;
-  //
-  // void _getOtherProfileInformation() async {
-  //   final String userTempAbout =
-  //   await _localStorageHelper.extractImportantTableData(
-  //       extraImportant: ExtraImportant.About,
-  //       userMail: FirebaseAuth.instance.currentUser.email);
-  //
-  //   final String userTempAccCreationDate =
-  //   await _localStorageHelper.extractImportantTableData(
-  //       extraImportant: ExtraImportant.CreationDate,
-  //       userMail: FirebaseAuth.instance.currentUser.email);
-  //
-  //   final String userTempAccCreationTime =
-  //   await _localStorageHelper.extractImportantTableData(
-  //       extraImportant: ExtraImportant.CreationTime,
-  //       userMail: FirebaseAuth.instance.currentUser.email);
-  //
-  //   if (mounted) {
-  //     setState(() {
-  //       this._userAbout = userTempAbout;
-  //       this._userAccCreationDate = userTempAccCreationDate;
-  //       this._userAccCreationTime = userTempAccCreationTime;
-  //     });
-  //
-  //     print(this._userAbout);
-  //     print(this._userAccCreationDate);
-  //     print(this._userAccCreationTime);
-  //   }
-  // }
 
   @override
   void initState() {
-    // _fToast.init(context);
-    // ImportantThings.findImageUrlAndUserName();
-    // _getOtherProfileInformation();
     super.initState();
   }
 
@@ -85,9 +34,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             firstPortion(context),
             const SizedBox(
-              height: 50.0,
+              height: 40.0,
             ),
-            otherInformation('About', 'Welcome to ClubHouse'),
+            otherInformation('About', '@ClubHouse'),
             otherInformation('Join Date', "08-11-2000"),
             otherInformation('Join Time', "11:30 PM"),
             _deleteButton(context),
@@ -134,62 +83,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     );
                   },
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).orientation ==
-                            Orientation.portrait
-                        ? MediaQuery.of(context).size.height * (0.7 / 8) - 10
-                        : MediaQuery.of(context).size.height * (1.5 / 8) - 10,
-                    left: MediaQuery.of(context).orientation ==
-                            Orientation.portrait
-                        ? MediaQuery.of(context).size.width / 3 - 65
-                        : MediaQuery.of(context).size.width / 8 - 15,
-                  ),
-                  child: Container(
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.lightBlue,
-                      ),
-                      child: GestureDetector(
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: MediaQuery.of(context).orientation ==
-                                  Orientation.portrait
-                              ? MediaQuery.of(context).size.height *
-                                  (1.3 / 8) /
-                                  2.5 *
-                                  (3.5 / 6)
-                              : MediaQuery.of(context).size.height *
-                                  (1.3 / 8) /
-                                  2,
-                        ),
-                        onTap: () async {
-                          // final PickedFile _pickedFile =
-                          // await _imagePicker.getImage(
-                          //   source: ImageSource.camera,
-                          //   imageQuality: 50,
-                          // );
-                          //
-                          // print('PickedFile: $_pickedFile');
-                          //
-                          // if (_pickedFile != null)
-                          //   await _manageTakeImageAsProfilePic(_pickedFile);
-                        },
-                        onLongPress: () async {
-                          // final PickedFile _pickedFile =
-                          // await _imagePicker.getImage(
-                          //   source: ImageSource.gallery,
-                          //   imageQuality: 50,
-                          // );
-                          //
-                          // print('PickedFile: $_pickedFile');
-                          //
-                          // if (_pickedFile != null)
-                          //   await _manageTakeImageAsProfilePic(_pickedFile);
-                        },
-                      )),
-                ),
               ],
             ),
           ),
@@ -214,148 +107,92 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget otherInformation(String leftText, String rightText) {
-    return Container(
-      height: 60.0,
-      margin: const EdgeInsets.only(bottom: 30.0),
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 10.0),
-              child: Text(
-                leftText,
-                style: const TextStyle(
-                  fontSize: 18.0,
-                  fontFamily: 'Lora',
-                  fontStyle: FontStyle.normal,
-                  color: Colors.lightBlue,
-                  letterSpacing: 1.0,
+    return Card(
+      elevation: 0.5,
+      child: Container(
+        height: 60.0,
+        margin: const EdgeInsets.only(bottom: 10.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text(
+                  leftText,
+                  style: const TextStyle(
+                    fontSize: 18.0,
+                    fontFamily: 'Lora',
+                    fontStyle: FontStyle.normal,
+                    color: Colors.lightBlue,
+                    letterSpacing: 1.0,
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.only(right: 10.0),
-              alignment: Alignment.centerRight,
-              child: Text(
-                rightText,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16.0,
-                  fontFamily: 'Lora',
-                  fontStyle: FontStyle.italic,
-                  color: Colors.green,
-                  letterSpacing: 1.0,
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.only(right: 10.0),
+                alignment: Alignment.centerRight,
+                child: Text(
+                  rightText,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    fontFamily: 'Lora',
+                    color: Colors.green,
+                    letterSpacing: 1.0,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  // Future<void> _manageTakeImageAsProfilePic(PickedFile _pickedFile) async {
-  //   try {
-  //     showToast(
-  //       'Applying Changes',
-  //       _fToast,
-  //       seconds: 5,
-  //       fontSize: 18.0,
-  //     );
-  //
-  //     if (mounted) {
-  //       setState(() {
-  //         _isLoading = true;
-  //       });
-  //     }
-  //
-  //     await _management.uploadNewProfilePicToFireStore(
-  //         file: File(_pickedFile.path),
-  //         context: context,
-  //         userMail: FirebaseAuth.instance.currentUser.email);
-  //
-  //     if (ImportantThings.thisAccountProfileImagePath != '') {
-  //       try {
-  //         await File(ImportantThings.thisAccountProfileImagePath)
-  //             .delete(recursive: true)
-  //             .whenComplete(() => print('Old Profile Image Deleted'));
-  //       } catch (e) {
-  //         print(
-  //             'Exception: Delete Old Profile Picture Exception: ${e.toString()}');
-  //       }
-  //     }
-  //
-  //     if (mounted) {
-  //       setState(() {
-  //         ImportantThings.thisAccountProfileImagePath =
-  //             File(_pickedFile.path).path;
-  //
-  //         _isLoading = false;
-  //       });
-  //     }
-  //   } catch (e) {
-  //     showDialog(
-  //         context: context,
-  //         builder: (_) => AlertDialog(
-  //           elevation: 5.0,
-  //           backgroundColor: const Color.fromRGBO(34, 48, 60, 0.6),
-  //           title: Text(
-  //             'An Error Occured',
-  //             style: TextStyle(
-  //               color: Colors.red,
-  //               fontSize: 18.0,
-  //             ),
-  //           ),
-  //           content: Text(
-  //             'Please Close the Profile Screen and\nRe-Open To Continue',
-  //             style: TextStyle(
-  //               color: Colors.white,
-  //             ),
-  //           ),
-  //         ));
-  //   }
-  // }
-
   Widget _deleteButton(BuildContext context) {
-    return Center(
-      child: TextButton(
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40.0),
-            side: const BorderSide(
-              color: Colors.red,
-            ),
-          ),
-        ),
-        child: Container(
-          width: MediaQuery.of(context).size.width / 2,
-          alignment: Alignment.center,
-          child: Row(
-            children: const [
-              Icon(
-                Icons.delete_outline,
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Center(
+        child: TextButton(
+          style: TextButton.styleFrom(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: const BorderSide(
                 color: Colors.red,
               ),
-              Expanded(
-                child: Text(
-                  'Delete My Account',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    color: Colors.red,
+            ),
+          ),
+          child: Container(
+            width: MediaQuery.of(context).size.width / 2,
+            alignment: Alignment.center,
+            child: Row(
+              children: const [
+                Icon(
+                  Icons.delete_outline,
+                  color: Colors.red,
+                ),
+                Expanded(
+                  child: Text(
+                    'Delete My Account',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
+          onPressed: () async {
+            await _deleteConformation();
+          },
         ),
-        onPressed: () async {
-          await _deleteConformation();
-        },
       ),
     );
   }

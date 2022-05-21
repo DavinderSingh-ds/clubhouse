@@ -8,6 +8,7 @@ import 'package:google_signin/FrontEnd/MenuScreens/about_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/profile_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/settings_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/SupportScreens/support_screen.dart';
+import 'package:lottie/lottie.dart';
 
 import 'chatAndActivityScreen.dart';
 import 'general_connection_section.dart';
@@ -235,9 +236,11 @@ class _MainScreenState extends State<MainScreen> {
             ),
             _menuOptions(Icons.description_outlined, 'About'),
             const SizedBox(
-              height: 30.0,
+              height: 10.0,
             ),
             exitButtonCall(),
+            Lottie.network(
+                'https://assets3.lottiefiles.com/packages/lf20_2cghrrpi.json'),
           ],
         ),
       ),
@@ -252,14 +255,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       closedElevation: 0.0,
       openElevation: 3.0,
-      onClosed: (value) {
-        // print('Profile Page Closed');
-        // if (mounted) {
-        //   setState(() {
-        //     ImportantThings.findImageUrlAndUserName();
-        //   });
-        // }
-      },
+      onClosed: (value) {},
       openBuilder: (context, openWidget) {
         if (menuOptionIs == 'Profile') {
           return const ProfileScreen();
@@ -304,24 +300,33 @@ class _MainScreenState extends State<MainScreen> {
       onTap: () async {
         await SystemNavigator.pop(animated: true);
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Icon(
-            Icons.exit_to_app_rounded,
-            color: Colors.lightBlue,
-          ),
-          SizedBox(
-            width: 10.0,
-          ),
-          Text(
-            'Exit',
-            style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.black,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          color: const Color.fromARGB(255, 40, 209, 25),
+          child: SizedBox(
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(
+                  Icons.exit_to_app_rounded,
+                  color: Colors.yellowAccent,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  'Exit',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
