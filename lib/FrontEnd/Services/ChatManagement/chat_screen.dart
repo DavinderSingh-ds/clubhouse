@@ -485,59 +485,40 @@ class _ChatScreenState extends State<ChatScreen> {
           return true;
         },
         child: Scaffold(
-          backgroundColor: const Color.fromRGBO(34, 48, 60, 1),
           appBar: AppBar(
-            backgroundColor: const Color.fromRGBO(25, 39, 52, 1),
+            backgroundColor: const Color.fromARGB(255, 121, 231, 226),
             elevation: 0.0,
-            title: Text(widget.userName),
+            title: Text(
+              widget.userName,
+              style: const TextStyle(color: Color.fromARGB(255, 65, 22, 85)),
+            ),
             leading: Row(
-              children: <Widget>[
-                const SizedBox(
+              children: const <Widget>[
+                SizedBox(
                   width: 10.0,
                 ),
                 Expanded(
-                  child: OpenContainer(
-                    closedColor: const Color.fromRGBO(25, 39, 52, 1),
-                    middleColor: const Color.fromRGBO(25, 39, 52, 1),
-                    openColor: const Color.fromRGBO(25, 39, 52, 1),
-                    closedShape: const CircleBorder(),
-                    closedElevation: 0.0,
-                    transitionType: ContainerTransitionType.fadeThrough,
-                    transitionDuration: const Duration(milliseconds: 500),
-                    openBuilder: (_, __) {
-                      return const Center();
-                    },
-                    closedBuilder: (_, __) {
-                      return const CircleAvatar(
-                        radius: 23.0,
-                        backgroundColor: Color.fromRGBO(25, 39, 52, 1),
-                        backgroundImage: ExactAssetImage(
-                          "assets/images/google.png",
-                        ),
-                      );
-                    },
+                  child: CircleAvatar(
+                    radius: 23.0,
+                    backgroundColor: Color.fromRGBO(25, 39, 52, 1),
+                    backgroundImage: ExactAssetImage(
+                      "assets/images/ds.jpg",
+                    ),
                   ),
                 ),
               ],
             ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.call,
-                  color: Colors.green,
-                ),
-              ),
-            ],
           ),
           body: LoadingOverlay(
             isLoading: _isLoading,
-            color: Colors.black54,
             child: Container(
               width: double.maxFinite,
               height: double.maxFinite,
-              color: Colors.amber,
-              //margin: EdgeInsets.all(12.0),
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage("assets/images/chatwallpape.jpg"),
+                fit: BoxFit.cover,
+              )),
               child: ListView(
                 shrinkWrap: true,
                 children: [
@@ -886,7 +867,7 @@ class _ChatScreenState extends State<ChatScreen> {
       width: double.maxFinite,
       height: 80.0,
       decoration: const BoxDecoration(
-          color: Color.fromRGBO(25, 39, 52, 1),
+          color: Color.fromARGB(255, 16, 236, 225),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0))),
       child: Row(
@@ -894,7 +875,7 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
             icon: const Icon(
               Icons.emoji_emotions_outlined,
-              color: Colors.amber,
+              color: Color.fromARGB(255, 51, 13, 48),
             ),
             onPressed: () {
               log('Clicked Emoji');
@@ -908,11 +889,11 @@ class _ChatScreenState extends State<ChatScreen> {
             },
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+            padding: const EdgeInsets.only(right: 8.0, left: 4.0),
             child: GestureDetector(
               child: const Icon(
                 Icons.link,
-                color: Colors.lightBlue,
+                color: Color.fromARGB(255, 19, 13, 54),
               ),
               onTap: _differentChatOptions,
             ),
@@ -923,13 +904,13 @@ class _ChatScreenState extends State<ChatScreen> {
               height: 60.0,
               child: TextField(
                 controller: _typedText,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.black),
                 maxLines: null,
                 decoration: InputDecoration(
                   hintText: _hintText,
-                  hintStyle: const TextStyle(color: Colors.white70),
+                  hintStyle: const TextStyle(color: Colors.blue),
                   enabledBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.lightBlue, width: 2.0),
+                    borderSide: BorderSide(color: Colors.green, width: 2.0),
                   ),
                 ),
                 onTap: () {

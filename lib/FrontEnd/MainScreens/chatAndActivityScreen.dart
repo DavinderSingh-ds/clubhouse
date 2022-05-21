@@ -14,6 +14,7 @@ import 'package:google_signin/Global_Uses/enum_generation.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 
 import 'package:animations/animations.dart';
+import 'package:lottie/lottie.dart';
 
 class ChatAndActivityScreen extends StatefulWidget {
   const ChatAndActivityScreen({Key? key}) : super(key: key);
@@ -336,9 +337,6 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                     bottom: 3.0,
                   ),
                   child: OpenContainer(
-                    // closedColor: const Color.fromRGBO(31, 51, 71, 1),
-                    // openColor: const Color.fromRGBO(31, 51, 71, 1),
-                    // middleColor: const Color.fromRGBO(31, 51, 71, 1),
                     closedShape: const CircleBorder(),
                     closedElevation: 0.0,
                     transitionDuration: const Duration(milliseconds: 500),
@@ -352,7 +350,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                         backgroundColor: Colors.black12,
                         backgroundImage:
                             ExactAssetImage('assets/images/ds.jpg'),
-                        //getProperImageProviderForConnectionsCollection(
+                        // getProperImageProviderForConnectionsCollection(
                         //    _userName),
                       );
                     },
@@ -415,18 +413,8 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                       top: 2.0,
                       bottom: 2.0,
                     ),
-                    child: Column(
-                      children: const [
-                        Text('5:30'),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Icon(
-                          Icons.notifications_active_outlined,
-                          color: Color.fromARGB(255, 65, 77, 65),
-                        ),
-                      ],
-                    ),
+                    child: Lottie.network(
+                        'https://assets5.lottiefiles.com/packages/lf20_OHjIOS.json'),
                   ),
                 ),
               ],
