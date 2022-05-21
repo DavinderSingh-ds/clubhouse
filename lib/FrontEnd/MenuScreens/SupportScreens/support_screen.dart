@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import 'mail_content_maker.dart';
 
@@ -61,6 +62,8 @@ class _SupportMenuMakerState extends State<SupportMenuMaker> {
               title: 'Send Feedback',
               extraText: 'Your Experience of that App',
             ),
+            Lottie.network(
+                'https://assets10.lottiefiles.com/packages/lf20_wpf1kujc.json'),
           ],
         ),
       ),

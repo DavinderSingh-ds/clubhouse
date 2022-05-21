@@ -6,6 +6,7 @@ import 'dart:developer';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_overlay/loading_overlay.dart';
+import 'package:lottie/lottie.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -40,6 +41,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             otherInformation('Join Date', "08-11-2000"),
             otherInformation('Join Time', "11:30 PM"),
             _deleteButton(context),
+            const SizedBox(
+              height: 30,
+            ),
+            Lottie.network(
+                'https://assets3.lottiefiles.com/packages/lf20_fdo8bkv7.json'),
           ],
         ),
       ),

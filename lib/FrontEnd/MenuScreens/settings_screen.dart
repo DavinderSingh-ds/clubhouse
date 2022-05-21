@@ -1,11 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-
-// import 'package:generation/BackendAndDatabaseManager/global_controller/different_types.dart';
-// import 'package:generation/FrontEnd/MenuScreen/Settings/chat_wallpaper_maker.dart';
-// import 'package:generation/FrontEnd/MenuScreen/Settings/chat_history_maker_and_media_view.dart';
-// import 'package:generation/FrontEnd/MenuScreen/Settings/settings_notification_screen.dart';
-// import 'package:generation/FrontEnd/MenuScreen/Settings/phone_call_config.dart';
+import 'package:lottie/lottie.dart';
 
 class SettingsWindow extends StatefulWidget {
   const SettingsWindow({Key? key}) : super(key: key);
@@ -19,8 +14,7 @@ class _SettingsWindowState extends State<SettingsWindow> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 10.0,
-        shadowColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 89, 214, 214),
         title: const Text(
           'Settings',
           style: TextStyle(
@@ -52,7 +46,7 @@ class _SettingsWindowState extends State<SettingsWindow> {
             height: 15.0,
           ),
           everySettingsItem(
-              mainText: 'Generation Direct Calling Setting',
+              mainText: 'Direct Calling Setting',
               icon: Icons.call,
               smallDescription: 'Add Phone Number to Receive Call'),
           const SizedBox(
@@ -81,6 +75,12 @@ class _SettingsWindowState extends State<SettingsWindow> {
               ),
             ),
           ),
+          Container(
+            height: 250,
+            color: Colors.white,
+            child: Lottie.network(
+                'https://assets3.lottiefiles.com/packages/lf20_scrpsgm1.json'),
+          ),
         ],
       ),
     );
@@ -96,28 +96,17 @@ class _SettingsWindowState extends State<SettingsWindow> {
       transitionDuration: const Duration(milliseconds: 500),
       openBuilder: (_, __) {
         switch (mainText) {
-          // case 'Notification':
-          //   return SettingsNotificationConfiguration();
-          //
-          // case 'Chat Wallpaper':
-          //   return ChatWallPaperMaker(allUpdatePermission: true, userName: '');
-          //
-          // case 'Generation Direct Calling Setting':
-          //   return PhoneNumberConfig();
-          //
-          // case 'Chat History':
-          //   return ChatHistoryMakerAndMediaViewer(
-          //       historyOrMediaChoice: HistoryOrMediaChoice.History);
-          //
-          // case 'Storage':
-          //   return ChatHistoryMakerAndMediaViewer(
-          //       historyOrMediaChoice: HistoryOrMediaChoice.Media);
-
         }
-        return const Center(
-          child: Text(
-            'Sorry, Not yet Implemented',
-            style: TextStyle(color: Colors.red, fontSize: 18.0),
+        return Center(
+          child: Column(
+            children: [
+              Lottie.network(
+                  'https://assets10.lottiefiles.com/packages/lf20_15jzhigy.json'),
+              const Text(
+                'Sorry, Not yet Implemented',
+                style: TextStyle(color: Colors.blue, fontSize: 18.0),
+              ),
+            ],
           ),
         );
       },
