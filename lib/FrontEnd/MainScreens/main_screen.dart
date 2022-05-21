@@ -47,47 +47,18 @@ class _MainScreenState extends State<MainScreen> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: <Color>[
-                      Color.fromARGB(255, 40, 58, 221),
-                      Color.fromARGB(255, 35, 159, 241),
+                      Color.fromARGB(255, 24, 47, 252),
+                      Color.fromARGB(255, 205, 218, 226),
                     ]),
               ),
             ),
-            elevation: 20.0,
+            elevation: 0.0,
             shadowColor: Colors.white,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30.0),
-                bottomRight: Radius.circular(30.0),
-              ),
-              side: BorderSide(width: 0.7),
-            ),
             title: const Text(
               "ClubHouse",
               style: TextStyle(
-                  fontSize: 25.0, fontFamily: 'Lora', letterSpacing: 1.0),
+                  fontSize: 17.0, fontFamily: 'Lora', letterSpacing: 1.0),
             ),
-            actions: [
-              const Padding(
-                padding: EdgeInsets.only(right: 10.0),
-                child: Icon(
-                  Icons.search_outlined,
-                  size: 25.0,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 20.0,
-                ),
-                child: IconButton(
-                  tooltip: 'Refresh',
-                  icon: const Icon(
-                    Icons.refresh_outlined,
-                    size: 25.0,
-                  ),
-                  onPressed: () async {},
-                ),
-              ),
-            ],
             bottom: _bottom(),
           ),
           body: const TabBarView(

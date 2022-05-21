@@ -246,6 +246,9 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
               spreadRadius: 0.0,
             )
           ],
+          image: DecorationImage(
+              image: AssetImage('assets/images/chatwallpape.jpg'),
+              fit: BoxFit.cover),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
         ),
@@ -313,7 +316,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                         radius: 30.0,
                         backgroundColor: Colors.black12,
                         backgroundImage:
-                            ExactAssetImage('assets/images/ds.jpg'),
+                            ExactAssetImage('assets/images/userPro.jpeg'),
                       );
                     },
                   ),
@@ -354,7 +357,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                             height: 12.0,
                           ),
                           const Text(
-                            'Hello Davinder',
+                            'Hello User',
                             style: TextStyle(color: Colors.black),
                           ),
                         ],
