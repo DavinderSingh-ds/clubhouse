@@ -212,42 +212,6 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                   );
                 },
               ),
-              // index == 0 // This is for current user Account
-              //     ? Padding(
-              //         padding: EdgeInsets.only(
-              //           top: MediaQuery.of(context).orientation ==
-              //                   Orientation.portrait
-              //               ? MediaQuery.of(context).size.height * (0.7 / 8) -
-              //                   10
-              //               : MediaQuery.of(context).size.height * (1.5 / 8) -
-              //                   10,
-              //           left: MediaQuery.of(context).orientation ==
-              //                   Orientation.portrait
-              //               ? MediaQuery.of(context).size.width / 3 - 65
-              //               : MediaQuery.of(context).size.width / 8 - 15,
-              //         ),
-              //         child: Container(
-              //             decoration: const BoxDecoration(
-              //               shape: BoxShape.circle,
-              //               color: Colors.lightBlue,
-              //             ),
-              //             child: GestureDetector(
-              //               child: Icon(
-              //                 Icons.add,
-              //                 color: Colors.white,
-              //                 size: MediaQuery.of(context).orientation ==
-              //                         Orientation.portrait
-              //                     ? MediaQuery.of(context).size.height *
-              //                         (1.3 / 8) /
-              //                         2.5 *
-              //                         (3.5 / 6)
-              //                     : MediaQuery.of(context).size.height *
-              //                         (1.3 / 8) /
-              //                         2,
-              //               ),
-              //             )),
-              //       )
-              //     : const SizedBox(),
             ],
           ),
           Container(
@@ -350,16 +314,11 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                         backgroundColor: Colors.black12,
                         backgroundImage:
                             ExactAssetImage('assets/images/ds.jpg'),
-                        // getProperImageProviderForConnectionsCollection(
-                        //    _userName),
                       );
                     },
                   ),
                 ),
                 OpenContainer(
-                  // closedColor: const Color.fromARGB(255, 236, 239, 247),
-                  // openColor: const Color.fromARGB(255, 236, 239, 247),
-                  // middleColor: const Color.fromARGB(255, 236, 239, 247),
                   closedElevation: 0.0,
                   openElevation: 0.0,
                   transitionDuration: const Duration(milliseconds: 500),
@@ -394,9 +353,6 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
                           const SizedBox(
                             height: 12.0,
                           ),
-
-                          /// For Extract latest Conversation Message
-//                          _latestDataForConnectionExtractPerfectly(_userName)
                           const Text(
                             'Hello Davinder',
                             style: TextStyle(color: Colors.black),

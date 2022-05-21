@@ -380,12 +380,6 @@ class _ChatScreenState extends State<ChatScreen> {
     double _positionToScroll = 100.0;
 
     try {
-      // if (mounted) {
-      //   setState(() {
-      //     this._isLoading = true;
-      //   });
-      // }
-
       List<PreviousMessageStructure> _storedPreviousMessages =
           await _localDatabase.getAllPreviousMessages(widget.userName);
 
@@ -409,12 +403,6 @@ class _ChatScreenState extends State<ChatScreen> {
     } catch (e) {
       log("Previous Message Fetching Error in ChatScreen: ${e.toString()}");
     } finally {
-      // if (mounted) {
-      //   setState(() {
-      //     this._isLoading = false;
-      //   });
-      // }
-
       if (mounted) {
         setState(() {
           log("Position to Scroll: $_positionToScroll");
@@ -576,10 +564,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                 });
                               }
                             },
-                            onBackspacePressed: () {
-                              // Backspace-Button tapped logic
-                              // Remove this line to also remove the button in the UI
-                            },
+                            onBackspacePressed: () {},
                             config: const Config(
                                 columns: 7,
                                 emojiSizeMax: 32.0,
@@ -618,7 +603,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 borderRadius: BorderRadius.circular(40.0),
               ),
               elevation: 0.3,
-              backgroundColor: const Color.fromRGBO(34, 48, 60, 0.5),
+              backgroundColor: Colors.white,
               content: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 2.7,
@@ -628,16 +613,17 @@ class _ChatScreenState extends State<ChatScreen> {
                     outerRadius: MediaQuery.of(context).size.width / 3.2,
                     innerRadius: MediaQuery.of(context).size.width / 10,
                     showInitialAnimation: true,
-                    innerCircleColor: const Color.fromRGBO(34, 48, 60, 1),
-                    outerCircleColor: const Color.fromRGBO(0, 0, 0, 0.1),
+                    innerCircleColor: Colors.white,
+                    outerCircleColor: const Color.fromARGB(23, 26, 65, 190),
                     origin: const Offset(0, 0),
                     rotateMode: RotateMode.allRotate,
                     centerWidget: const Center(
                       child: Text(
-                        "G",
+                        "ds",
                         style: TextStyle(
-                          color: Colors.lightBlue,
-                          fontSize: 45.0,
+                          color: Colors.blue,
+                          fontSize: 40.0,
+                          fontFamily: 'italic',
                         ),
                       ),
                     ),
@@ -858,7 +844,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     return Text(
       _willReturnTime,
-      style: const TextStyle(color: Colors.lightBlue),
+      style: const TextStyle(color: Colors.white),
     );
   }
 

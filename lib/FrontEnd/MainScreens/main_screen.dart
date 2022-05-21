@@ -11,7 +11,7 @@ import 'package:google_signin/FrontEnd/MenuScreens/SupportScreens/support_screen
 
 import 'chatAndActivityScreen.dart';
 import 'general_connection_section.dart';
-import 'image_screen.dart';
+import 'game_screen.dart';
 import 'package:animations/animations.dart';
 
 class MainScreen extends StatefulWidget {
