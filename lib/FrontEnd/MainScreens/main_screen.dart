@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_signin/FrontEnd/MainScreens/home_page.dart';
 import 'package:google_signin/FrontEnd/MainScreens/youtube_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/about_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/profile_screen.dart';
@@ -26,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: WillPopScope(
         onWillPop: () async {
           if (_currIndex > 0) {
@@ -94,6 +95,7 @@ class _MainScreenState extends State<MainScreen> {
               ImageScreen(),
               YouTubeScreen(),
               GeneralMessagingSection(),
+              HomePage(),
             ],
           ),
         ),
@@ -128,7 +130,7 @@ class _MainScreenState extends State<MainScreen> {
           child: Text(
             "💬",
             style: TextStyle(
-              fontSize: 26.0,
+              fontSize: 20.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
@@ -137,9 +139,9 @@ class _MainScreenState extends State<MainScreen> {
         ),
         Tab(
           child: Text(
-            "🏠",
+            "🎮",
             style: TextStyle(
-              fontSize: 26.0,
+              fontSize: 20.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
@@ -148,9 +150,9 @@ class _MainScreenState extends State<MainScreen> {
         ),
         Tab(
           child: Text(
-            "📱",
+            "🎶",
             style: TextStyle(
-              fontSize: 22.0,
+              fontSize: 20.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
@@ -161,7 +163,18 @@ class _MainScreenState extends State<MainScreen> {
           child: Text(
             "🏪",
             style: TextStyle(
-              fontSize: 22.0,
+              fontSize: 20.0,
+              fontFamily: 'Lora',
+              fontWeight: FontWeight.w500,
+              letterSpacing: 1.0,
+            ),
+          ),
+        ),
+        Tab(
+          child: Text(
+            "🏠",
+            style: TextStyle(
+              fontSize: 20.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,

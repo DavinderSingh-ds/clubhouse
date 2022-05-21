@@ -9,6 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_signin/FrontEnd/MainScreens/main_screen.dart';
 
 import 'package:loading_overlay/loading_overlay.dart';
+import 'package:lottie/lottie.dart';
 
 class TakePrimaryUserData extends StatefulWidget {
   const TakePrimaryUserData({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class _TakePrimaryUserDataState extends State<TakePrimaryUserData> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: const Color.fromARGB(255, 67, 219, 112),
       body: LoadingOverlay(
         isLoading: _isLoading,
         child: Container(
@@ -77,6 +78,8 @@ class _TakePrimaryUserDataState extends State<TakePrimaryUserData> {
                     },
                     textEditingController: _userAbout),
                 _saveUserPrimaryInformation(),
+                Lottie.network(
+                    'https://assets3.lottiefiles.com/packages/lf20_Gpv1rN.json'),
               ],
             ),
           ),
@@ -87,11 +90,15 @@ class _TakePrimaryUserDataState extends State<TakePrimaryUserData> {
 
   Widget _upperHeading() {
     return const Padding(
-      padding: EdgeInsets.only(top: 30.0, bottom: 50.0),
+      padding: EdgeInsets.only(top: 35.0, bottom: 50.0),
       child: Center(
         child: Text(
           'Set Up Your Account',
-          style: TextStyle(color: Colors.white, fontSize: 25.0),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
@@ -104,7 +111,7 @@ class _TakePrimaryUserDataState extends State<TakePrimaryUserData> {
         style: ElevatedButton.styleFrom(
             minimumSize: Size(MediaQuery.of(context).size.width - 60, 30.0),
             elevation: 5.0,
-            primary: const Color.fromRGBO(57, 60, 80, 1),
+            shadowColor: Colors.amber,
             padding: const EdgeInsets.only(
               left: 20.0,
               right: 20.0,

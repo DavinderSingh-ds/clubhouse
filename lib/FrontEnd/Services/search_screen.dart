@@ -78,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 235, 240, 245),
+        backgroundColor: const Color.fromARGB(255, 252, 244, 244),
         body: LoadingOverlay(
           isLoading: _isLoading,
           color: Colors.black54,
@@ -148,16 +148,19 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 10.0),
+                  margin: const EdgeInsets.only(top: 8.0),
                   height: MediaQuery.of(context).size.height - 50,
-                  width: double.maxFinite,
-                  //color: Colors.red,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: _sortedAvailableUsers.length,
-                    itemBuilder: (connectionContext, index) {
-                      return connectionShowUp(index);
-                    },
+                  width: MediaQuery.of(context).size.width,
+                  color: const Color.fromARGB(255, 74, 240, 231),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: _sortedAvailableUsers.length,
+                      itemBuilder: (connectionContext, index) {
+                        return connectionShowUp(index);
+                      },
+                    ),
                   ),
                 ),
               ],
@@ -170,10 +173,14 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget connectionShowUp(int index) {
     return Card(
-      elevation: 1,
-      color: const Color.fromARGB(255, 120, 17, 255),
+      elevation: 0.5,
+      color: const Color.fromARGB(255, 240, 244, 248),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(
+          top: 5,
+          left: 5,
+          right: 5,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -186,7 +193,11 @@ class _SearchScreenState extends State<SearchScreen> {
                       .first
                       .toString()
                       .split('[user-name-about-divider]')[0],
-                  style: const TextStyle(color: Colors.black, fontSize: 20.0),
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.0,
+                    fontFamily: 'Lora',
+                  ),
                 ),
                 Text(
                   _sortedAvailableUsers[index]
@@ -194,7 +205,10 @@ class _SearchScreenState extends State<SearchScreen> {
                       .first
                       .toString()
                       .split('[user-name-about-divider]')[1],
-                  style: const TextStyle(color: Colors.white, fontSize: 16.0),
+                  style: const TextStyle(
+                    color: Colors.blueAccent,
+                    fontSize: 16.0,
+                  ),
                 ),
               ],
             ),
@@ -317,7 +331,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 : ConnectionStateName.Accept.toString()
                     .split(".")[1]
                     .toString(),
-            style: const TextStyle(color: Colors.yellow),
+            style: const TextStyle(color: Colors.pink),
           );
         } else if (connectionStateType == ConnectionStateType.ButtonOnlyName) {
           return _storeStatus ==
@@ -326,7 +340,7 @@ class _SearchScreenState extends State<SearchScreen> {
               : ConnectionStateName.Accept.toString();
         }
 
-        return Colors.yellow;
+        return Colors.pink;
       } else {
         if (connectionStateType == ConnectionStateType.ButtonNameWidget) {
           return Text(
