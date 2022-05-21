@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_signin/FrontEnd/MainScreens/youtube_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/about_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/profile_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/settings_screen.dart';
@@ -10,7 +11,6 @@ import 'package:google_signin/FrontEnd/MenuScreens/SupportScreens/support_screen
 import 'chatAndActivityScreen.dart';
 import 'general_connection_section.dart';
 import 'image_screen.dart';
-import 'logs_collection.dart';
 import 'package:animations/animations.dart';
 
 class MainScreen extends StatefulWidget {
@@ -92,7 +92,7 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               ChatAndActivityScreen(),
               ImageScreen(),
-              LogsCollection(),
+              YouTubeScreen(),
               GeneralMessagingSection(),
             ],
           ),

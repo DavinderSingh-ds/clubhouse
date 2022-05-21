@@ -38,7 +38,7 @@ class _ImageScreenState extends State<ImageScreen> {
                     Container(
                       height: 150,
                       width: MediaQuery.of(context).size.width,
-                      color: Colors.red,
+                      color: Colors.white,
                       child: Image.asset(
                         'assets/images/mazee.jpg',
                         fit: BoxFit.fill,
