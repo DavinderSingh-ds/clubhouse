@@ -47,7 +47,7 @@ class _VideoScreenState extends State<VideoScreen> {
               width: 200,
               color: Colors.white,
               child: Lottie.network(
-                  'https://assets2.lottiefiles.com/packages/lf20_gp8xcujl.json'),
+                  'https://assets9.lottiefiles.com/private_files/lf30_rlssnwpv.json'),
             ),
           ),
           FittedBox(
