@@ -28,6 +28,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16),
       child: Container(
+        color: Colors.white,
         child: Material(
           elevation: 1.0,
           shadowColor: Colors.black,

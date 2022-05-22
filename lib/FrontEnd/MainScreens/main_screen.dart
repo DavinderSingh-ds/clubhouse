@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_signin/FrontEnd/MainScreens/KidsEducation/mainPageKids.dart';
 import 'package:google_signin/FrontEnd/MainScreens/home_page.dart';
 import 'package:google_signin/FrontEnd/MainScreens/youtube_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/about_screen.dart';
@@ -11,7 +12,7 @@ import 'package:google_signin/FrontEnd/MenuScreens/SupportScreens/support_screen
 import 'package:lottie/lottie.dart';
 
 import 'chatAndActivityScreen.dart';
-import 'diary.dart';
+import 'diary/diary.dart';
 import 'game_screen.dart';
 import 'package:animations/animations.dart';
 
@@ -66,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
               ChatAndActivityScreen(),
               ImageScreen(),
               YouTubeScreen(),
-              Diary(),
+              mainPageKids(),
               HomePage(),
             ],
           ),

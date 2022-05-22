@@ -1,30 +1,39 @@
 import 'dart:developer';
 
+import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
 import 'package:flutter/material.dart';
-import '../../Backend/sqlite_management/databaseDiary.dart';
-import '../../Backend/sqlite_management/diaryModel/diaryModel.dart';
-import '../../Themes/ThemeColors.dart';
-import '../NewUserEntry/enter_diary_detail.dart';
+import 'package:lottie/lottie.dart';
 
-class Diary extends StatefulWidget {
-  const Diary({Key? key}) : super(key: key);
+import '../../../Backend/sqlite_management/databaseDiary.dart';
+import '../../../Backend/sqlite_management/diaryModel/diaryModel.dart';
+import '../../../Themes/ThemeColors.dart';
+import '../../NewUserEntry/enter_diary_detail.dart';
+
+class BottomBar extends StatefulWidget {
+  const BottomBar({Key? key}) : super(key: key);
 
   @override
-  _DiaryState createState() => _DiaryState();
+  _BottomBarState createState() => _BottomBarState();
 }
 
-class _DiaryState extends State<Diary> {
+class _BottomBarState extends State<BottomBar> {
+  final _bottomBarController = BottomBarWithSheetController(initialIndex: 0);
+
+  @override
+  void initState() {
+    _bottomBarController.stream.listen((opened) {
+      debugPrint('Bottom bar ${opened ? 'opened' : 'closed'}');
+    });
+    _databaseprovider = Databaseprovider.instance;
+    refreshData();
+    super.initState();
+  }
+
   var _databaseprovider;
   late Future<List<DogModel>> expenseTransactionsList;
   late Future<List<DogModel>> transactionsList;
   var totalIncome;
   var totalExpense;
-
-  void initState() {
-    super.initState();
-    _databaseprovider = Databaseprovider.instance;
-    refreshData();
-  }
 
   refreshData() {
     setState(() {
@@ -46,9 +55,7 @@ class _DiaryState extends State<Diary> {
     width = size.width;
     height = size.height;
     oreintation = MediaQuery.of(context).orientation;
-
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Expanded(
@@ -89,7 +96,7 @@ class _DiaryState extends State<Diary> {
                         padding: EdgeInsets.all(8.0),
                         child: FittedBox(
                           child: Text(
-                            '👀 See Available Dogs 🐕',
+                            '👀 See Avialable ',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 2,
@@ -136,9 +143,10 @@ class _DiaryState extends State<Diary> {
                                             top: 8,
                                           ),
                                           child: Container(
+                                            color: Colors.white,
                                             child: Row(
                                               children: [
-                                                Container(
+                                                SizedBox(
                                                   width: 210,
                                                   child: Text(
                                                     'Dog Name : ${dogModel.dogName}',
@@ -158,7 +166,7 @@ class _DiaryState extends State<Diary> {
                                               left: 7.0, top: 2),
                                           child: Row(
                                             children: [
-                                              Container(
+                                              SizedBox(
                                                 width: 220,
                                                 child: Text(
                                                   'Dog Breed  : ${dogModel.dogBreed}',
@@ -202,7 +210,7 @@ class _DiaryState extends State<Diary> {
                                             Padding(
                                               padding:
                                                   const EdgeInsets.only(top: 3),
-                                              child: Container(
+                                              child: SizedBox(
                                                 width: 300,
                                                 child: Text(
                                                   dogModel.date,
@@ -223,12 +231,13 @@ class _DiaryState extends State<Diary> {
                                               bottom: 6,
                                               top: 5),
                                           child: Container(
+                                            color: Colors.white,
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Container(
+                                                SizedBox(
                                                   height: 25,
                                                   width: 100,
                                                   child: MaterialButton(
@@ -255,7 +264,7 @@ class _DiaryState extends State<Diary> {
                                                     ),
                                                   ),
                                                 ),
-                                                Container(
+                                                SizedBox(
                                                   height: 25,
                                                   width: 100,
                                                   child: MaterialButton(
@@ -315,7 +324,7 @@ class _DiaryState extends State<Diary> {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: 75,
             child: Stack(
               children: [
@@ -348,10 +357,17 @@ class _DiaryState extends State<Diary> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => EnterDetail(title: ''),
+                                  builder: (context) =>
+                                      const EnterDetail(title: ''),
                                 ),
                               );
                             },
+                          ),
+                          SizedBox(
+                            height: 70,
+                            width: 70,
+                            child: Lottie.network(
+                                'https://assets10.lottiefiles.com/packages/lf20_ch1qp0yv.json'),
                           ),
                         ],
                       ),
@@ -361,6 +377,90 @@ class _DiaryState extends State<Diary> {
               ],
             ),
           ),
+        ],
+      ),
+      bottomNavigationBar: BottomBarWithSheet(
+        controller: _bottomBarController,
+        bottomBarTheme: const BottomBarTheme(
+          mainButtonPosition: MainButtonPosition.middle,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+          ),
+          itemIconColor: Colors.grey,
+          itemTextStyle: TextStyle(
+            color: Colors.grey,
+            fontSize: 10.0,
+          ),
+          selectedItemTextStyle: TextStyle(
+            color: Colors.blue,
+            fontSize: 10.0,
+          ),
+        ),
+        onSelectItem: (index) => debugPrint('$index'),
+        sheetChild: Center(
+          child: FutureBuilder(
+            future: transactionsList,
+            builder:
+                (BuildContext context, AsyncSnapshot<List<DogModel>> snapshot) {
+              if (snapshot.hasData) {
+                log('Length of transaction $snapshot.data?.length');
+                return ListView.builder(
+                  itemCount: snapshot.data?.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    DogModel dogModel = snapshot.data![index];
+
+                    return Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Card(
+                          child: Container(
+                            height: 35,
+                            color: Colors.green,
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  dogModel.dogName,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              } else {
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('Please Wait.....'),
+                      SizedBox(height: 30),
+                      CircularProgressIndicator(),
+                    ],
+                  ),
+                );
+              }
+            },
+          ),
+        ),
+        items: const [
+          BottomBarWithSheetItem(icon: Icons.people),
+          BottomBarWithSheetItem(icon: Icons.shopping_cart),
+          BottomBarWithSheetItem(icon: Icons.settings),
+          BottomBarWithSheetItem(icon: Icons.favorite),
         ],
       ),
     );
