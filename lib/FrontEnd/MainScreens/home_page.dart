@@ -4,14 +4,14 @@ import 'package:google_signin/Backend/firebase/Auth/fb_auth.dart';
 import 'package:google_signin/Backend/firebase/Auth/google_auth.dart';
 import 'package:google_signin/FrontEnd/AuthUI/log_in.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class LogOutPage extends StatefulWidget {
+  const LogOutPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _LogOutPageState createState() => _LogOutPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _LogOutPageState extends State<LogOutPage> {
   final EmailAndPasswordAuth _emailAndPasswordAuth = EmailAndPasswordAuth();
   final GoogleAuthentication _googleAuthentication = GoogleAuthentication();
   final FacebookAuthentication _facebookAuthentication =

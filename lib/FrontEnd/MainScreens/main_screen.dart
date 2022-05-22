@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_signin/FrontEnd/MainScreens/KidsEducation/mainPageKids.dart';
-import 'package:google_signin/FrontEnd/MainScreens/home_page.dart';
 import 'package:google_signin/FrontEnd/MainScreens/youtube_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/about_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/profile_screen.dart';
@@ -60,6 +59,15 @@ class _MainScreenState extends State<MainScreen> {
               style: TextStyle(
                   fontSize: 17.0, fontFamily: 'Lora', letterSpacing: 1.0),
             ),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.logout_outlined),
+                tooltip: 'LogOut',
+                onPressed: () {
+                  // handle the press
+                },
+              ),
+            ],
             bottom: _bottom(),
           ),
           body: const TabBarView(
@@ -68,7 +76,7 @@ class _MainScreenState extends State<MainScreen> {
               ImageScreen(),
               YouTubeScreen(),
               mainPageKids(),
-              HomePage(),
+              Diary(),
             ],
           ),
         ),

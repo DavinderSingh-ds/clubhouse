@@ -9,14 +9,14 @@ import '../../../Backend/sqlite_management/diaryModel/diaryModel.dart';
 import '../../../Themes/ThemeColors.dart';
 import '../../NewUserEntry/enter_diary_detail.dart';
 
-class BottomBar extends StatefulWidget {
-  const BottomBar({Key? key}) : super(key: key);
+class Diary extends StatefulWidget {
+  const Diary({Key? key}) : super(key: key);
 
   @override
-  _BottomBarState createState() => _BottomBarState();
+  _DiaryState createState() => _DiaryState();
 }
 
-class _BottomBarState extends State<BottomBar> {
+class _DiaryState extends State<Diary> {
   final _bottomBarController = BottomBarWithSheetController(initialIndex: 0);
 
   @override
