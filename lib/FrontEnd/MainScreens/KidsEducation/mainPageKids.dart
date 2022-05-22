@@ -20,14 +20,11 @@ class _mainPageKidsState extends State<mainPageKids> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(
-              height: 30,
-            ),
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.4,
               decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
                   image: DecorationImage(
                       image: AssetImage('assets/images/childstudy.jpg'),
                       fit: BoxFit.cover)),

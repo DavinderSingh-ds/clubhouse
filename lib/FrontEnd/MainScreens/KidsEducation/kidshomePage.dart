@@ -44,7 +44,7 @@ class _KidsHomePageState extends State<KidsHomePage> {
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("asset/images/searchBg.png"))),
+                    image: AssetImage("assets/images/searchBg.png"))),
             child: Container(
               padding: const EdgeInsets.all(20),
               child: Column(

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_signin/FrontEnd/MainScreens/KidsEducation/colorScheme.dart';
-import 'package:google_signin/Global_Uses/show_toast_message.dart';
 import 'package:lottie/lottie.dart';
 
 class TeacherPage extends StatefulWidget {
@@ -28,7 +27,24 @@ class _TeacherPageState extends State<TeacherPage> {
             ),
             content: Container(
               child: Lottie.network(
-                  'https://assets3.lottiefiles.com/packages/lf20_lzpnnin5.json'),
+                  'https://assets7.lottiefiles.com/packages/lf20_2plouhmo.json'),
+            ),
+          );
+        });
+  }
+
+  createAlertDialogForDate(BuildContext context, String i) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(
+              'Yout have selcted {$i} index',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.green,
+              ),
             ),
           );
         });
@@ -84,6 +100,7 @@ class _TeacherPageState extends State<TeacherPage> {
                           height: 220,
                           width: 200,
                           decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
                             image: DecorationImage(
                                 image:
                                     AssetImage('assets/images/teacherds.jpg'),
@@ -340,7 +357,9 @@ class _TeacherPageState extends State<TeacherPage> {
   InkWell dateWidget(int i) {
     DateTime tempDate = DateTime.now().add(Duration(days: i));
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        createAlertDialogForDate(context, i.toString());
+      },
       child: Container(
         margin: const EdgeInsets.all(2),
         height: 60,
