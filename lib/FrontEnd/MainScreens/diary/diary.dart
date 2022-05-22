@@ -96,7 +96,7 @@ class _DiaryState extends State<Diary> {
                         padding: EdgeInsets.all(8.0),
                         child: FittedBox(
                           child: Text(
-                            '👀 See Avialable ',
+                            '👀 See Your Consultants',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 2,
@@ -149,7 +149,7 @@ class _DiaryState extends State<Diary> {
                                                 SizedBox(
                                                   width: 210,
                                                   child: Text(
-                                                    'Dog Name : ${dogModel.dogName}',
+                                                    'Consultant : ${dogModel.dogName}',
                                                     style: const TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
@@ -169,7 +169,7 @@ class _DiaryState extends State<Diary> {
                                               SizedBox(
                                                 width: 220,
                                                 child: Text(
-                                                  'Dog Breed  : ${dogModel.dogBreed}',
+                                                  'Consultant Job : ${dogModel.dogBreed}',
                                                   style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.bold,
@@ -177,9 +177,9 @@ class _DiaryState extends State<Diary> {
                                                 ),
                                               ),
                                               Text(
-                                                'Dog Age : ${dogModel.dogAge}',
+                                                'Consultant Age : ${dogModel.dogAge}',
                                                 style: const TextStyle(
-                                                  fontSize: 14,
+                                                  fontSize: 13,
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.green,
                                                 ),
@@ -193,9 +193,9 @@ class _DiaryState extends State<Diary> {
                                           child: Row(
                                             children: [
                                               Text(
-                                                'Dog Color   : ${dogModel.dogColor}',
+                                                'Consultant Rank   : ${dogModel.dogColor}',
                                                 style: const TextStyle(
-                                                  fontSize: 14,
+                                                  fontSize: 13,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
@@ -216,7 +216,6 @@ class _DiaryState extends State<Diary> {
                                                   dogModel.date,
                                                   style: const TextStyle(
                                                     fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
                                                     color: Colors.black,
                                                   ),
                                                 ),
@@ -347,7 +346,7 @@ class _DiaryState extends State<Diary> {
                             minWidth: 280,
                             color: Colors.amber,
                             child: const Text(
-                              'Add Dog Detail',
+                              'Add Your Consultant',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -456,12 +455,7 @@ class _DiaryState extends State<Diary> {
             },
           ),
         ),
-        items: const [
-          BottomBarWithSheetItem(icon: Icons.people),
-          BottomBarWithSheetItem(icon: Icons.shopping_cart),
-          BottomBarWithSheetItem(icon: Icons.settings),
-          BottomBarWithSheetItem(icon: Icons.favorite),
-        ],
+        items: const [],
       ),
     );
   }

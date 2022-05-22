@@ -37,7 +37,7 @@ class _EnterDetailState extends State<EnterDetail> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Dog Detail',
+          'Consultant Detail',
           style: TextStyle(fontSize: 18),
         ),
       ),
@@ -63,7 +63,7 @@ class _EnterDetailState extends State<EnterDetail> {
                       top: 25,
                     ),
                     child: Text(
-                      'ADD DETAIL OF DOG',
+                      'ADD DETAIL OF CONSULTANT',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
@@ -84,16 +84,16 @@ class _EnterDetailState extends State<EnterDetail> {
                             textInputAction: TextInputAction.next,
                             validator: (s) {
                               if (s!.isEmpty) {
-                                return 'Enter the name of dog First';
+                                return 'Enter the name of Consultant First';
                               }
                               return null;
                             },
                             decoration: const InputDecoration(
-                              labelText: 'Dog Name',
+                              labelText: 'Consultant Name',
                               labelStyle: TextStyle(fontSize: 14),
-                              hintText: 'Enter Name Of Dog',
+                              hintText: 'Enter Name Of Guide',
                               hintStyle: TextStyle(fontSize: 14),
-                              icon: Icon(Icons.pets_rounded),
+                              icon: Icon(Icons.person),
                             ),
                           ),
                         ),
@@ -101,20 +101,20 @@ class _EnterDetailState extends State<EnterDetail> {
                           padding: const EdgeInsets.only(
                               top: 16, left: 14, right: 14),
                           child: TextFormField(
-                            controller: _colorController,
+                            controller: _descriptionController,
                             textInputAction: TextInputAction.next,
                             validator: (s) {
                               if (s!.isEmpty) {
-                                return 'Enter the dog color First';
+                                return 'Enter the Consultant Job First';
                               }
                               return null;
                             },
                             decoration: const InputDecoration(
-                              labelText: 'Dog Color',
+                              labelText: 'Consultant Job',
                               labelStyle: TextStyle(fontSize: 14),
-                              hintText: 'Enter Color Of Dog',
+                              hintText: 'Enter job of Consultant',
                               hintStyle: TextStyle(fontSize: 14),
-                              icon: Icon(Icons.color_lens),
+                              icon: Icon(Icons.work),
                             ),
                           ),
                         ),
@@ -126,15 +126,15 @@ class _EnterDetailState extends State<EnterDetail> {
                             textInputAction: TextInputAction.next,
                             validator: (s) {
                               if (s!.isEmpty) {
-                                return 'Enter the age of dog First';
+                                return 'Enter the age first';
                               }
                               return null;
                             },
                             keyboardType: TextInputType.number,
                             decoration: const InputDecoration(
-                              labelText: 'Dog Age',
+                              labelText: 'Consultant Age',
                               labelStyle: TextStyle(fontSize: 14),
-                              hintText: 'Enter the Age of Dog',
+                              hintText: 'Enter the Age',
                               hintStyle: TextStyle(fontSize: 14),
                               icon: Icon(Icons.add_reaction),
                             ),
@@ -144,18 +144,18 @@ class _EnterDetailState extends State<EnterDetail> {
                           padding: const EdgeInsets.only(
                               top: 16, left: 14, right: 14),
                           child: TextFormField(
-                            controller: _descriptionController,
+                            controller: _colorController,
                             textInputAction: TextInputAction.next,
                             validator: (des) {
                               if (des!.isEmpty) {
-                                return 'Enter the breed of dog First';
+                                return 'Enter the Rank First';
                               }
                               return null;
                             },
                             decoration: const InputDecoration(
-                              labelText: 'Dog Breed',
+                              labelText: 'Consultant Rank',
                               labelStyle: TextStyle(fontSize: 14),
-                              hintText: 'Enter Breed of Dog',
+                              hintText: 'Enter Rank',
                               hintStyle: TextStyle(fontSize: 14),
                               icon: Icon(Icons.whatshot_rounded),
                             ),
@@ -170,7 +170,7 @@ class _EnterDetailState extends State<EnterDetail> {
                             decoration: const InputDecoration(
                               labelText: 'Description',
                               labelStyle: TextStyle(fontSize: 14),
-                              hintText: 'Enter extra info of Dog',
+                              hintText: 'Enter extra info about Consultant',
                               hintStyle: TextStyle(fontSize: 14),
                               icon: Icon(Icons.description),
                             ),
