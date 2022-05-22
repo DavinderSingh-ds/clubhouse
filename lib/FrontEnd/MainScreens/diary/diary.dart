@@ -381,12 +381,11 @@ class _DiaryState extends State<Diary> {
       bottomNavigationBar: BottomBarWithSheet(
         controller: _bottomBarController,
         bottomBarTheme: const BottomBarTheme(
-          mainButtonPosition: MainButtonPosition.middle,
+          mainButtonPosition: MainButtonPosition.left,
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+            color: Color.fromARGB(255, 206, 200, 200),
           ),
-          itemIconColor: Colors.grey,
+          itemIconColor: Color.fromARGB(255, 124, 69, 69),
           itemTextStyle: TextStyle(
             color: Colors.grey,
             fontSize: 10.0,
@@ -455,7 +454,12 @@ class _DiaryState extends State<Diary> {
             },
           ),
         ),
-        items: const [],
+        items: const [
+          BottomBarWithSheetItem(icon: Icons.people),
+          BottomBarWithSheetItem(icon: Icons.shopping_cart),
+          BottomBarWithSheetItem(icon: Icons.settings),
+          BottomBarWithSheetItem(icon: Icons.favorite),
+        ],
       ),
     );
   }

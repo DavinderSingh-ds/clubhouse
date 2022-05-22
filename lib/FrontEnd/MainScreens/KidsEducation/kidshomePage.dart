@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:google_signin/FrontEnd/MainScreens/KidsEducation/TeacherScreen.dart';
 
@@ -61,7 +63,9 @@ class _KidsHomePageState extends State<KidsHomePage> {
                         fontFamily: 'circe',
                         fontWeight: FontWeight.w700),
                   ),
-                  Expanded(child: Container()),
+                  Expanded(
+                    child: Container(),
+                  ),
                   Container(
                     height: 70,
                     decoration: const BoxDecoration(
@@ -90,7 +94,7 @@ class _KidsHomePageState extends State<KidsHomePage> {
                   ),
                   const SizedBox(
                     height: 30,
-                  )
+                  ),
                 ],
               ),
             ),

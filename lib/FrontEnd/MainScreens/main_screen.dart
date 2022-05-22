@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_signin/FrontEnd/MainScreens/KidsEducation/mainPageKids.dart';
+import 'package:google_signin/FrontEnd/MainScreens/logOut_Page.dart';
 import 'package:google_signin/FrontEnd/MainScreens/youtube_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/about_screen.dart';
 import 'package:google_signin/FrontEnd/MenuScreens/profile_screen.dart';
@@ -64,7 +65,10 @@ class _MainScreenState extends State<MainScreen> {
                 icon: const Icon(Icons.logout_outlined),
                 tooltip: 'LogOut',
                 onPressed: () {
-                  // handle the press
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LogOutPage()),
+                  );
                 },
               ),
             ],

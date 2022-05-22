@@ -244,7 +244,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
               color: Colors.blue,
               blurRadius: 0.5,
               spreadRadius: 0.0,
-            )
+            ),
           ],
           image: DecorationImage(
               image: AssetImage('assets/images/chatwallpape.jpg'),

@@ -78,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 252, 244, 244),
+        backgroundColor: Colors.grey[200],
         body: LoadingOverlay(
           isLoading: _isLoading,
           color: Colors.black54,
@@ -99,53 +99,69 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Expanded(child: Container()),
                 Container(
-                  width: double.maxFinite,
-                  margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                  child: TextField(
-                    autofocus: true,
-                    style: const TextStyle(color: Colors.black),
-                    decoration: const InputDecoration(
-                      hintText: 'Search User Name',
-                      hintStyle: TextStyle(color: Colors.black54),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 2.0, color: Colors.lightBlue)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 2.0, color: Colors.lightBlue)),
-                    ),
-                    onChanged: (writeText) {
-                      if (mounted) {
-                        setState(() {
-                          _isLoading = true;
-                        });
-                      }
-
-                      if (mounted) {
-                        setState(() {
-                          _sortedAvailableUsers.clear();
-
-                          log('Available Users: $_availableUsers');
-
-                          for (var userNameMap in _availableUsers) {
-                            if (userNameMap.values.first
-                                .toString()
-                                .toLowerCase()
-                                .startsWith(writeText.toLowerCase())) {
-                              _sortedAvailableUsers.add(userNameMap);
+                  height: 60,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      color: Colors.white),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(
+                          Icons.search,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                        onPressed: () {},
+                      ),
+                      Expanded(
+                        child: TextField(
+                          style: const TextStyle(
+                              fontSize: 18, fontFamily: 'circe'),
+                          decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Search for Friends"),
+                          onChanged: (writeText) {
+                            if (mounted) {
+                              setState(() {
+                                _isLoading = true;
+                              });
                             }
-                          }
-                        });
-                      }
 
-                      if (mounted) {
-                        setState(() {
-                          _isLoading = false;
-                        });
-                      }
-                    },
+                            if (mounted) {
+                              setState(() {
+                                _sortedAvailableUsers.clear();
+
+                                log('Available Users: $_availableUsers');
+
+                                for (var userNameMap in _availableUsers) {
+                                  if (userNameMap.values.first
+                                      .toString()
+                                      .toLowerCase()
+                                      .startsWith(writeText.toLowerCase())) {
+                                    _sortedAvailableUsers.add(userNameMap);
+                                  }
+                                }
+                              });
+                            }
+
+                            if (mounted) {
+                              setState(() {
+                                _isLoading = false;
+                              });
+                            }
+                          },
+                        ),
+                      ),
+                    ],
                   ),
+                ),
+                const SizedBox(
+                  height: 6,
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 8.0),
