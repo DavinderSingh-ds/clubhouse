@@ -27,13 +27,6 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
   bool _isLoading = false;
   final List<String> _allUserConnectionActivity = [
     'ClubHouse',
-    'Davinder',
-    'ClubHouse',
-    'Davinder',
-    'ClubHouse',
-    'Davinder',
-    'ClubHouse',
-    'Davinder'
   ];
   final List<String> _allConnectionsUserName = [];
 
@@ -134,7 +127,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: const Color.fromARGB(255, 113, 216, 202),
         floatingActionButton: _externalConnectionManagement(),
         body: LoadingOverlay(
           color: const Color.fromRGBO(0, 0, 0, 0.5),
@@ -155,7 +148,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
 
   Widget _activityList(BuildContext context) {
     return Container(
-      color: Colors.grey[100],
+      color: const Color.fromARGB(255, 113, 216, 202),
       margin: const EdgeInsets.only(
         top: 20.0,
         left: 10.0,
@@ -168,7 +161,16 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
         scrollDirection: Axis.horizontal, // Make ListView Horizontally
         itemCount: _allUserConnectionActivity.length,
         itemBuilder: (context, position) {
-          return _activityCollectionList(context, position);
+          return Row(
+            children: [
+              _activityCollectionList(context, position),
+              const SizedBox(
+                width: 60,
+              ),
+              LottieBuilder.network(
+                  'https://assets3.lottiefiles.com/packages/lf20_2cghrrpi.json'),
+            ],
+          );
         },
       ),
     );
@@ -242,15 +244,16 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
           boxShadow: [
             BoxShadow(
               color: Colors.blue,
-              blurRadius: 0.5,
+              blurRadius: 1,
               spreadRadius: 0.0,
             ),
           ],
           image: DecorationImage(
-              image: AssetImage('assets/images/chatwallpape.jpg'),
-              fit: BoxFit.cover),
+            image: AssetImage('assets/images/pic11.jpg'),
+            fit: BoxFit.fill,
+          ),
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
+              topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
         ),
         child: ReorderableListView.builder(
           onReorder: (first, last) {

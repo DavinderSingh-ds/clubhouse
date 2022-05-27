@@ -44,13 +44,10 @@ class _MainScreenState extends State<MainScreen> {
           appBar: AppBar(
             flexibleSpace: Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[
-                      Color.fromARGB(255, 24, 47, 252),
-                      Color.fromARGB(255, 205, 218, 226),
-                    ]),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/pic1.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             elevation: 0.0,
@@ -58,11 +55,17 @@ class _MainScreenState extends State<MainScreen> {
             title: const Text(
               "ClubHouse",
               style: TextStyle(
-                  fontSize: 17.0, fontFamily: 'Lora', letterSpacing: 1.0),
+                fontSize: 18.0,
+                fontFamily: 'Lora',
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.0,
+                color: Colors.black,
+              ),
             ),
             actions: <Widget>[
               IconButton(
                 icon: const Icon(Icons.logout_outlined),
+                color: Colors.indigo,
                 tooltip: 'LogOut',
                 onPressed: () {
                   Navigator.push(
@@ -124,34 +127,37 @@ class _MainScreenState extends State<MainScreen> {
         ),
         Tab(
           child: Text(
-            "🎮",
+            "🎲",
             style: TextStyle(
               fontSize: 20.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
+              color: Colors.white,
             ),
           ),
         ),
         Tab(
           child: Text(
-            "🎶",
+            "📱",
             style: TextStyle(
               fontSize: 20.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
+              color: Colors.white,
             ),
           ),
         ),
         Tab(
           child: Text(
-            "🏪",
+            "🧒",
             style: TextStyle(
               fontSize: 20.0,
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
+              color: Colors.white,
             ),
           ),
         ),
@@ -163,6 +169,7 @@ class _MainScreenState extends State<MainScreen> {
               fontFamily: 'Lora',
               fontWeight: FontWeight.w500,
               letterSpacing: 1.0,
+              color: Colors.white,
             ),
           ),
         ),
