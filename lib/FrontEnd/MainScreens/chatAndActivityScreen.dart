@@ -127,7 +127,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 113, 216, 202),
+        backgroundColor: const Color.fromARGB(255, 29, 185, 167),
         floatingActionButton: _externalConnectionManagement(),
         body: LoadingOverlay(
           color: const Color.fromRGBO(0, 0, 0, 0.5),
@@ -148,7 +148,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
 
   Widget _activityList(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 113, 216, 202),
+      color: const Color.fromARGB(255, 29, 185, 167),
       margin: const EdgeInsets.only(
         top: 20.0,
         left: 10.0,
@@ -249,7 +249,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
             ),
           ],
           image: DecorationImage(
-            image: AssetImage('assets/images/pic11.jpg'),
+            image: AssetImage('assets/images/pic2.jpg'),
             fit: BoxFit.fill,
           ),
           borderRadius: BorderRadius.only(

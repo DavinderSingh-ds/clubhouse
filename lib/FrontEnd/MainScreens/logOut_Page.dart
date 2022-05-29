@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:google_signin/Backend/firebase/Auth/email_and_pwd_auth.dart';
 import 'package:google_signin/Backend/firebase/Auth/fb_auth.dart';
