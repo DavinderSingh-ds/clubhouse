@@ -102,7 +102,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                Expanded(child: Container()),
+                // Expanded(child: Container()),
                 Container(
                   height: 60,
                   decoration: const BoxDecoration(
@@ -168,15 +168,12 @@ class _SearchScreenState extends State<SearchScreen> {
                   height: MediaQuery.of(context).size.height - 50,
                   width: MediaQuery.of(context).size.width,
                   color: const Color.fromARGB(255, 74, 240, 231),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: _sortedAvailableUsers.length,
-                      itemBuilder: (connectionContext, index) {
-                        return connectionShowUp(index);
-                      },
-                    ),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: _sortedAvailableUsers.length,
+                    itemBuilder: (connectionContext, index) {
+                      return connectionShowUp(index);
+                    },
                   ),
                 ),
               ],
