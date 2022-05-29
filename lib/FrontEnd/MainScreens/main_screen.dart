@@ -45,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
             flexibleSpace: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/pic1.jpg'),
+                  image: AssetImage('assets/images/chatwallpape.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -59,13 +59,13 @@ class _MainScreenState extends State<MainScreen> {
                 fontFamily: 'Lora',
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1.0,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             actions: <Widget>[
               IconButton(
                 icon: const Icon(Icons.logout_outlined),
-                color: Colors.indigo,
+                color: Colors.white,
                 tooltip: 'LogOut',
                 onPressed: () {
                   Navigator.push(

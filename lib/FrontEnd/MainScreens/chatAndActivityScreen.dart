@@ -25,9 +25,7 @@ class ChatAndActivityScreen extends StatefulWidget {
 
 class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
   bool _isLoading = false;
-  final List<String> _allUserConnectionActivity = [
-    'ClubHouse',
-  ];
+
   final List<String> _allConnectionsUserName = [];
 
   final CloudStoreDataManagement _cloudStoreDataManagement =
@@ -127,7 +125,7 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 29, 185, 167),
+        backgroundColor: const Color.fromARGB(255, 117, 231, 212),
         floatingActionButton: _externalConnectionManagement(),
         body: LoadingOverlay(
           color: const Color.fromRGBO(0, 0, 0, 0.5),
@@ -137,99 +135,40 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
           isLoading: _isLoading,
           child: ListView(
             children: [
-              _activityList(context),
+              const SizedBox(
+                height: 6,
+              ),
+              SizedBox(
+                height: 70,
+                child: Card(
+                  elevation: 1,
+                  color: const Color.fromARGB(255, 39, 230, 220),
+                  child: Column(
+                    children: const [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Welcome Here!',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                          fontFamily: 'Times New Roman',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 9,
+              ),
               _connectionList(context),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _activityList(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 29, 185, 167),
-      margin: const EdgeInsets.only(
-        top: 20.0,
-        left: 10.0,
-      ),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).orientation == Orientation.portrait
-          ? MediaQuery.of(context).size.height * (1.5 / 11)
-          : MediaQuery.of(context).size.height * (3 / 9),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal, // Make ListView Horizontally
-        itemCount: _allUserConnectionActivity.length,
-        itemBuilder: (context, position) {
-          return Row(
-            children: [
-              _activityCollectionList(context, position),
-              const SizedBox(
-                width: 60,
-              ),
-              LottieBuilder.network(
-                  'https://assets3.lottiefiles.com/packages/lf20_2cghrrpi.json'),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _activityCollectionList(BuildContext context, int index) {
-    return Container(
-      margin: EdgeInsets.only(right: MediaQuery.of(context).size.width / 40),
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              if (_allUserConnectionActivity[index]
-                  .contains('[[[new_activity]]]'))
-                Container(
-                  color: Colors.red,
-                  child: const CircularProgressIndicator(
-                    color: Colors.blue,
-                    value: 1.0,
-                  ),
-                ),
-              OpenContainer(
-                closedElevation: 0.0,
-                closedShape: const CircleBorder(),
-                transitionDuration: const Duration(
-                  milliseconds: 500,
-                ),
-                transitionType: ContainerTransitionType.fadeThrough,
-                openBuilder: (context, openWidget) {
-                  return const Center();
-                },
-                closedBuilder: (context, closeWidget) {
-                  return CircleAvatar(
-                    backgroundColor: Colors.white,
-                    backgroundImage:
-                        const ExactAssetImage('assets/images/ds.jpg'),
-                    radius: MediaQuery.of(context).orientation ==
-                            Orientation.portrait
-                        ? MediaQuery.of(context).size.height * (1.2 / 8) / 3.7
-                        : MediaQuery.of(context).size.height * (1.2 / 8) / 3.7,
-                  );
-                },
-              ),
-            ],
-          ),
-          Container(
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(
-              top: 7.0,
-            ),
-            child: const Text(
-              'ClubHouse',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 12.0,
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -239,18 +178,18 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
       isLoading: _isLoading,
       child: Container(
         padding: const EdgeInsets.only(top: 18.0, bottom: 10.0),
-        height: MediaQuery.of(context).size.height * (5.15 / 7.7),
+        height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 39, 230, 220),
               blurRadius: 1,
               spreadRadius: 0.0,
             ),
           ],
           image: DecorationImage(
             image: AssetImage('assets/images/pic2.jpg'),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
