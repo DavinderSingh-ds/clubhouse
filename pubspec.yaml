@@ -47,11 +47,12 @@ dev_dependencies:
   percent_indicator: ^4.0.0
   record: ^3.0.4
   path_provider: ^2.0.9
-  firebase_storage: ^10.2.12
+  firebase_storage: 
   dio: ^4.0.6
   flutter_local_notifications: ^9.4.0
   http: ^0.13.4   
   maze: ^3.0.0   
+  firebase_auth_web: ^5.6.2 
 
   flutter_lints: ^1.0.0
   
