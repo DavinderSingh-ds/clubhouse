@@ -19,19 +19,19 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.9.2  
-  firebase_auth: ^3.3.11  
-  firebase_core: ^1.13.1
+  firebase_auth: 
+  firebase_core: 
   loading_overlay: ^0.3.0
   google_sign_in: ^5.2.4
   flutter_facebook_auth: ^4.1.2
-  cloud_firestore: ^3.1.11
-  firebase_messaging: ^11.2.12
+  cloud_firestore: 
+  firebase_messaging: 
   animations: ^2.0.2
   intl: ^0.17.0
   circle_list: ^1.0.5
   sqflite: ^2.0.2
   open_file: ^3.2.1
-  photo_view: ^0.13.0
+  photo_view: ^0.14.0
   image_picker: ^0.8.5
   emoji_picker_flutter: ^1.1.2
   fluttertoast: ^8.0.9
