@@ -112,7 +112,7 @@ class _LogInScreenState extends State<LogInScreen> {
         style: ElevatedButton.styleFrom(
             minimumSize: Size(MediaQuery.of(context).size.width - 60, 30.0),
             elevation: 5.0,
-            primary: Colors.amber,
+            shadowColor: Colors.amber,
             padding: const EdgeInsets.only(
               left: 20.0,
               right: 20.0,

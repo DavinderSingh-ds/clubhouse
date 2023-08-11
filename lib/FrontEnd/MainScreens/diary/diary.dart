@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'dart:developer';
 
 import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
@@ -300,10 +302,10 @@ class _DiaryState extends State<Diary> {
                                 },
                               );
                             } else {
-                              return Center(
+                              return const Center(
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Text('Please Wait.....'),
                                     SizedBox(height: 30),
                                     CircularProgressIndicator(),
@@ -440,10 +442,10 @@ class _DiaryState extends State<Diary> {
                   },
                 );
               } else {
-                return Center(
+                return const Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text('Please Wait.....'),
                       SizedBox(height: 30),
                       CircularProgressIndicator(),

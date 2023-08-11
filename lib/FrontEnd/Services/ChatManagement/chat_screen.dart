@@ -480,8 +480,8 @@ class _ChatScreenState extends State<ChatScreen> {
               widget.userName,
               style: const TextStyle(color: Color.fromARGB(255, 65, 22, 85)),
             ),
-            leading: Row(
-              children: const <Widget>[
+            leading: const Row(
+              children: <Widget>[
                 SizedBox(
                   width: 10.0,
                 ),
@@ -962,7 +962,7 @@ class _ChatScreenState extends State<ChatScreen> {
               : Alignment.centerRight,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: _conversationMessageHolder[index]
+              shadowColor: _conversationMessageHolder[index]
                   ? const Color.fromRGBO(60, 80, 100, 1)
                   : const Color.fromRGBO(102, 102, 255, 1),
               elevation: 0.0,

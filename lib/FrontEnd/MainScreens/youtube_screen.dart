@@ -53,11 +53,11 @@ class _YouTubeScreenState extends State<YouTubeScreen> {
                 'https://assets7.lottiefiles.com/private_files/lf30_efjqvygt.json'),
           ),
           const SizedBox(width: 12.0),
-          Expanded(
+          const Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Text(
                   'Listen Music',
                   style: TextStyle(

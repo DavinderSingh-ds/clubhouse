@@ -106,9 +106,9 @@ class _KidsHomePageState extends State<KidsHomePage> {
               color: Colors.white,
               child: Column(
                 children: [
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Text(
                         "Top Rated Tutors",
                         style: TextStyle(

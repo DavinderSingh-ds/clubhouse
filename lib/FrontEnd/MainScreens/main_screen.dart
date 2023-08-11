@@ -291,15 +291,15 @@ class _MainScreenState extends State<MainScreen> {
       onTap: () async {
         await SystemNavigator.pop(animated: true);
       },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
         child: Card(
-          color: const Color.fromARGB(255, 40, 209, 25),
+          color: Color.fromARGB(255, 40, 209, 25),
           child: SizedBox(
             height: 50,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Icon(
                   Icons.exit_to_app_rounded,
                   color: Colors.yellowAccent,

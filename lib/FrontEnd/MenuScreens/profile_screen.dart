@@ -176,8 +176,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Container(
             width: MediaQuery.of(context).size.width / 2,
             alignment: Alignment.center,
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 Icon(
                   Icons.delete_outline,
                   color: Colors.red,

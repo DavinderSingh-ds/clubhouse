@@ -115,7 +115,7 @@ Widget switchAnotherAuthScreen(
         ),
       ],
     ),
-    style: ElevatedButton.styleFrom(elevation: 0.0, primary: Colors.grey[300]),
+    style: ElevatedButton.styleFrom(elevation: 0.0, shadowColor: Colors.grey[300]),
     onPressed: () {
       if (buttonNameLast == "Log-In") {
         Navigator.push(

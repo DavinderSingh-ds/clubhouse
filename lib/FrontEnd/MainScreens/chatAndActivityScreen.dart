@@ -138,13 +138,13 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
               const SizedBox(
                 height: 6,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
                 child: Card(
                   elevation: 1,
-                  color: const Color.fromARGB(255, 39, 230, 220),
+                  color: Color.fromARGB(255, 39, 230, 220),
                   child: Column(
-                    children: const [
+                    children: [
                       SizedBox(
                         height: 10,
                       ),
@@ -232,8 +232,8 @@ class _ChatAndActivityScreenState extends State<ChatAndActivityScreen> {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               elevation: 0.0,
-              primary: Colors.white,
-              onPrimary: Colors.lightBlueAccent,
+              shadowColor: Colors.white,
+              backgroundColor: Colors.lightBlueAccent,
             ),
             onPressed: () {
               log("Chat List Pressed");
